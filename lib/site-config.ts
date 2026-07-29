@@ -5,7 +5,7 @@
  */
 export const siteConfig = {
   /** URL de production — à remplacer par le domaine définitif. */
-  url: "https://bagrain.example.com",
+  url: "https://bagrain-mj39.vercel.app",
 
   /** Email de contact public — À REMPLACER avant mise en ligne. */
   contactEmail: "contact@bagrain.example.com",
