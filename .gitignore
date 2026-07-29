@@ -1,0 +1,35 @@
+# dependencies
+/node_modules
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
+
+# misc
+.DS_Store
+*.pem
+
+# debug
+npm-debug.log*
+
+# env files
+.env*
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
+# session memory
+.remember/
+tsconfig.tsbuildinfo
+
+# sources d'assets : 443 images 30 fps (103 Mo) réencodées en
+# public/video/capuche-film.mp4 — voir le README
+/image sac animation capuche/
+
+# python
+__pycache__/
+*.pyc
