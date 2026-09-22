@@ -78,6 +78,17 @@ export default function Footer() {
                   {t.footer.privacy}
                 </Link>
               </li>
+              <li>
+                <a
+                  href={`mailto:${siteConfig.contactEmail}`}
+                  className="text-[15px] text-mist/70 transition-colors hover:text-mist"
+                >
+                  {/* Sur téléphone la colonne est étroite : l'adresse passe
+                      à la ligne avant l'arobase plutôt que de toucher le bord. */}
+                  {siteConfig.contactEmail.split("@")[0]}
+                  <wbr />@{siteConfig.contactEmail.split("@")[1]}
+                </a>
+              </li>
             </ul>
           </div>
 
