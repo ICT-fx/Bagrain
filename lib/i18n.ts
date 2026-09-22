@@ -345,7 +345,7 @@ const fr = {
         },
         {
           h: "Durée et hébergement",
-          p: "Les données sont conservées jusqu’au lancement commercial puis au maximum 3 ans, sur des services hébergés de préférence dans l’Union européenne. [Préciser le prestataire d’emailing retenu avant mise en ligne.]",
+          p: "Les données sont conservées jusqu’au lancement commercial puis au maximum 3 ans, sur des services hébergés de préférence dans l’Union européenne. Les adresses et messages sont traités par Resend (Resend, Inc., États-Unis), notre prestataire d’envoi d’emails.",
         },
         {
           h: "Vos droits",
@@ -704,7 +704,7 @@ const en: Dict = {
         },
         {
           h: "Retention and hosting",
-          p: "Data is kept until the commercial launch and for a maximum of 3 years, on services hosted preferably in the European Union. [Specify the chosen emailing provider before going live.]",
+          p: "Data is kept until the commercial launch and for a maximum of 3 years, on services hosted preferably in the European Union. Addresses and messages are processed by Resend (Resend, Inc., USA), our email delivery provider.",
         },
         {
           h: "Your rights",

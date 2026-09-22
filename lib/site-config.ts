@@ -14,6 +14,17 @@ export const siteConfig = {
    */
   contactEmail: "l.bembekoff@gmail.com",
 
+  /**
+   * Emails envoyés par le site via Resend (formulaires).
+   * Tant que le domaine n'est pas vérifié dans Resend, l'expéditeur doit
+   * rester onboarding@resend.dev, et Resend n'accepte d'écrire qu'à
+   * l'adresse du compte : `notifyTo` doit donc être celle-là.
+   */
+  mail: {
+    from: "BAGRAIN <onboarding@resend.dev>",
+    notifyTo: "l.bembekoff@gmail.com",
+  },
+
   /** Réseaux sociaux — laisser vide ("") pour masquer le lien. */
   socials: {
     linkedin: "",

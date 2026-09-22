@@ -1,9 +1,10 @@
 import { NextResponse } from "next/server";
+import { notifyTeam, resendConfigured } from "@/lib/resend";
 
 /**
- * Contact professionnel (distributeurs, revendeurs, presse).
- * Sans prestataire branché, la soumission est journalisée côté serveur.
- * Pour recevoir les messages : définir CONTACT_WEBHOOK_URL — voir README.
+ * Contact professionnel (distributeurs, revendeurs, presse) : le message
+ * arrive par email à l'équipe, « Répondre » écrit directement au visiteur.
+ * Sans RESEND_API_KEY (développement local), la soumission est journalisée.
  */
 export async function POST(req: Request) {
   let body: {
@@ -20,43 +21,52 @@ export async function POST(req: Request) {
     return NextResponse.json({ ok: false }, { status: 400 });
   }
 
-  const clean = (v: unknown, max: number) =>
-    typeof v === "string" ? v.trim().slice(0, max) : "";
+  // Les champs finissent dans un en-tête d'email : pas de retour à la ligne.
+  const line = (v: unknown, max: number) =>
+    typeof v === "string" ? v.replace(/[\r\n]+/g, " ").trim().slice(0, max) : "";
 
-  const name = clean(body.name, 200);
-  const email = clean(body.email, 320);
-  const message = clean(body.message, 4000);
+  const name = line(body.name, 200);
+  const email = line(body.email, 320);
+  const company = line(body.company, 200);
+  const country = line(body.country, 100);
+  const message =
+    typeof body.message === "string" ? body.message.trim().slice(0, 4000) : "";
+  const lang = body.lang === "en" ? "en" : "fr";
+
   // L'email est obligatoire : c'est la seule voie de réponse.
   if (!name || !message || !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) {
     return NextResponse.json({ ok: false }, { status: 400 });
   }
 
-  const payload = {
-    type: "pro-contact",
-    name,
-    email,
-    company: clean(body.company, 200),
-    country: clean(body.country, 100),
-    message,
-    lang: body.lang === "en" ? "en" : "fr",
-    date: new Date().toISOString(),
-  };
+  if (!resendConfigured()) {
+    console.log(
+      "[contact]",
+      JSON.stringify({ name, email, company, country, message, lang }),
+    );
+    return NextResponse.json({ ok: true });
+  }
 
-  const webhook = process.env.CONTACT_WEBHOOK_URL;
-  if (webhook) {
-    try {
-      const res = await fetch(webhook, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-      });
-      if (!res.ok) throw new Error(`webhook ${res.status}`);
-    } catch (err) {
-      console.error("[contact] webhook failed:", err);
-      return NextResponse.json({ ok: false }, { status: 502 });
-    }
-  } else {
-    console.log("[contact]", JSON.stringify(payload));
+  try {
+    await notifyTeam({
+      subject: `[BAGRAIN pro] ${name}${company ? ` — ${company}` : ""}`,
+      replyTo: email,
+      text: [
+        `Nom : ${name}`,
+        `Email : ${email}`,
+        `Société : ${company || "—"}`,
+        `Pays : ${country || "—"}`,
+        `Langue du site : ${lang.toUpperCase()}`,
+        "",
+        "Message :",
+        message,
+        "",
+        "—",
+        "Envoyé depuis le formulaire professionnel du site. Répondez directement à cet email pour écrire à l'expéditeur.",
+      ].join("\n"),
+    });
+  } catch (err) {
+    console.error("[contact] email failed:", err);
+    return NextResponse.json({ ok: false }, { status: 502 });
   }
 
   return NextResponse.json({ ok: true });

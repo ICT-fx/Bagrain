@@ -1,12 +1,12 @@
 import { NextResponse } from "next/server";
+import { addContact, notifyTeam, resendConfigured } from "@/lib/resend";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
 /**
- * Inscription à la liste de lancement.
- * Sans prestataire branché, la soumission est journalisée côté serveur.
- * Pour brancher un service d'emailing : définir NEWSLETTER_WEBHOOK_URL
- * (le payload JSON y est transmis tel quel) — voir README.
+ * Inscription à la liste de lancement : l'adresse rejoint les contacts
+ * Resend (d'où partira l'email de lancement), et l'équipe reçoit une copie.
+ * Sans RESEND_API_KEY (développement local), la soumission est journalisée.
  */
 export async function POST(req: Request) {
   let body: { email?: string; consent?: boolean; lang?: string };
@@ -20,30 +20,35 @@ export async function POST(req: Request) {
   if (!EMAIL_RE.test(email) || body.consent !== true) {
     return NextResponse.json({ ok: false }, { status: 400 });
   }
+  const lang = body.lang === "en" ? "en" : "fr";
 
-  const payload = {
-    type: "newsletter",
-    email,
-    lang: body.lang === "en" ? "en" : "fr",
-    consent: true,
-    date: new Date().toISOString(),
-  };
+  if (!resendConfigured()) {
+    console.log("[subscribe]", JSON.stringify({ email, lang }));
+    return NextResponse.json({ ok: true });
+  }
 
-  const webhook = process.env.NEWSLETTER_WEBHOOK_URL;
-  if (webhook) {
-    try {
-      const res = await fetch(webhook, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-      });
-      if (!res.ok) throw new Error(`webhook ${res.status}`);
-    } catch (err) {
-      console.error("[subscribe] webhook failed:", err);
-      return NextResponse.json({ ok: false }, { status: 502 });
-    }
-  } else {
-    console.log("[subscribe]", JSON.stringify(payload));
+  try {
+    await addContact(email);
+  } catch (err) {
+    console.error("[subscribe] contact failed:", err);
+    return NextResponse.json({ ok: false }, { status: 502 });
+  }
+
+  // L'adresse est déjà enregistrée : la copie par email est un plus, son
+  // échec ne doit pas faire croire au visiteur que l'inscription a raté.
+  try {
+    await notifyTeam({
+      subject: `Nouvelle inscription au lancement : ${email}`,
+      text: [
+        `Email : ${email}`,
+        `Langue du site : ${lang.toUpperCase()}`,
+        `Date : ${new Date().toLocaleString("fr-FR", { timeZone: "Europe/Paris" })}`,
+        "",
+        "L'adresse a été ajoutée aux contacts Resend.",
+      ].join("\n"),
+    });
+  } catch (err) {
+    console.error("[subscribe] notify failed:", err);
   }
 
   return NextResponse.json({ ok: true });

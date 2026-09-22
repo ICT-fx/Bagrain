@@ -25,20 +25,29 @@ npm start          # sert le build
 | **Mentions légales** (SIREN, siège…) | blocs `legal` dans [lib/i18n.ts](lib/i18n.ts) — les champs à compléter sont entre [crochets] |
 | **Couleurs, typo, easings** | `@theme` dans [app/globals.css](app/globals.css) |
 
-## Brancher la collecte d'emails
+## Collecte d'emails (Resend)
 
-Les deux formulaires postent sur `/api/subscribe` et `/api/contact`. Sans
-configuration, les soumissions sont **journalisées côté serveur** (logs Vercel)
-et l'utilisateur voit un succès. Pour transmettre à un vrai service
-(Brevo, Mailjet, Loops, Zapier/Make, Slack…), définir :
+Les deux formulaires passent par [Resend](https://resend.com) (voir
+[lib/resend.ts](lib/resend.ts)) :
+
+- **Liste de lancement** (`/api/subscribe`) : l'adresse est ajoutée aux
+  *Contacts* Resend, d'où partira l'email de lancement (*Broadcasts*). Une
+  copie de chaque inscription est envoyée à l'équipe.
+- **Contact pro** (`/api/contact`) : le message arrive par email à l'équipe ;
+  « Répondre » écrit directement au visiteur.
+
+Une seule variable, à définir dans Vercel (Settings → Environment Variables) :
 
 ```bash
-NEWSLETTER_WEBHOOK_URL=https://…   # reçoit {type, email, lang, consent, date}
-CONTACT_WEBHOOK_URL=https://…      # reçoit {type, name, company, country, message, lang, date}
+RESEND_API_KEY=re_…   # clé « Full access » (les contacts l'exigent)
 ```
 
-Le payload JSON est envoyé en POST tel quel. Préférer un prestataire hébergé
-dans l'UE (RGPD) et le nommer dans la politique de confidentialité.
+Sans elle (développement local), les soumissions sont seulement journalisées.
+
+Expéditeur et destinataire sont dans `mail` de [lib/site-config.ts](lib/site-config.ts).
+Sans domaine vérifié dans Resend, l'expéditeur reste `onboarding@resend.dev`
+et Resend n'écrit qu'à l'adresse du compte. Le domaine est indispensable pour
+envoyer l'email de lancement à la liste.
 
 ## Les visuels produit
 
