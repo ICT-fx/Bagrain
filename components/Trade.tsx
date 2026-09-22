@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState, type MouseEvent } from "react";
 import Image from "next/image";
 import { useLang } from "@/components/LangProvider";
 import { siteConfig } from "@/lib/site-config";
@@ -7,10 +8,58 @@ import Button from "@/components/ui/Button";
 import Reveal from "@/components/ui/Reveal";
 import Lines from "@/components/ui/Lines";
 
+const CALENDLY_JS = "https://assets.calendly.com/assets/external/widget.js";
+const CALENDLY_CSS = "https://assets.calendly.com/assets/external/widget.css";
+
+type CalendlyApi = { initPopupWidget: (opts: { url: string }) => void };
+
+let calendlyLoading: Promise<CalendlyApi> | null = null;
+
+/** Charge le widget Calendly au premier clic seulement : rien à payer au chargement de la page. */
+function loadCalendly(): Promise<CalendlyApi> {
+  const w = window as unknown as { Calendly?: CalendlyApi };
+  if (w.Calendly) return Promise.resolve(w.Calendly);
+  if (!calendlyLoading) {
+    const css = document.createElement("link");
+    css.rel = "stylesheet";
+    css.href = CALENDLY_CSS;
+    document.head.appendChild(css);
+
+    calendlyLoading = new Promise((resolve, reject) => {
+      const js = document.createElement("script");
+      js.src = CALENDLY_JS;
+      js.async = true;
+      js.onload = () =>
+        w.Calendly ? resolve(w.Calendly) : reject(new Error("calendly"));
+      js.onerror = () => {
+        calendlyLoading = null;
+        reject(new Error("calendly"));
+      };
+      document.head.appendChild(js);
+    });
+  }
+  return calendlyLoading;
+}
+
 /** La section la plus utile pendant l'événement : infos stand + RDV. */
 export default function Trade() {
   const { t, lang } = useLang();
   const ev = siteConfig.event;
+
+  // Évalué côté client : la page est statique, la date du build ne dit
+  // rien de la date de visite.
+  const [salonOver, setSalonOver] = useState(false);
+  useEffect(() => {
+    setSalonOver(Date.now() > new Date(ev.end).getTime());
+  }, [ev.end]);
+
+  const openBooking = (e: MouseEvent<HTMLElement>) => {
+    e.preventDefault();
+    loadCalendly()
+      .then((c) => c.initPopupWidget({ url: ev.bookingUrl }))
+      // Widget bloqué (bloqueur de pub, réseau) : la page Calendly directe.
+      .catch(() => window.open(ev.bookingUrl, "_blank", "noopener"));
+  };
 
   const dates = ev.confirmed
     ? new Intl.DateTimeFormat(lang === "fr" ? "fr-FR" : "en-GB", {
@@ -30,7 +79,8 @@ export default function Trade() {
   return (
     <section id="salon" className="section-pad bg-ink">
       <div className="container-site">
-        <div className="grid items-start gap-10 sm:gap-12 lg:grid-cols-2">
+        {/* Photo centrée verticalement sur le bloc de texte à côté. */}
+        <div className="grid items-start gap-10 sm:gap-12 lg:grid-cols-2 lg:items-center">
           <div>
             <Reveal>
               <p className="mono-label kicker text-haze">{t.salon.kicker}</p>
@@ -67,13 +117,11 @@ export default function Trade() {
 
             <Reveal delay={280}>
               <div className="mt-8 flex flex-wrap gap-3 sm:mt-10 sm:gap-4">
-                <Button
-                  href={`mailto:${siteConfig.contactEmail}?subject=${encodeURIComponent(
-                    t.salon.meetSubject,
-                  )}`}
-                >
-                  {t.salon.meet}
-                </Button>
+                {!salonOver && (
+                  <Button href={ev.bookingUrl} onClick={openBooking}>
+                    {t.salon.meet}
+                  </Button>
+                )}
                 {/* Tant que les dates ne sont pas confirmées, pas de .ics :
                     il enverrait un rendez-vous fictif dans l'agenda. */}
                 {ev.confirmed && (

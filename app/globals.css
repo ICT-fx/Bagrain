@@ -607,3 +607,10 @@ body {
     animation: none;
   }
 }
+
+/* Fenêtre Calendly (RDV stand) : le voile par défaut, gris à 40 %, se voit
+   à peine sur le fond nuit du site. */
+.calendly-overlay .calendly-close-overlay {
+  background-color: rgba(6, 10, 22, 0.8);
+  backdrop-filter: blur(4px);
+}

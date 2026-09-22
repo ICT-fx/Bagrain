@@ -250,7 +250,6 @@ const fr = {
     place: "Lieu",
     hallStand: "Hall & stand",
     meet: "Prendre rendez-vous sur le stand",
-    meetSubject: "Rendez-vous sur le stand BAGRAIN",
     addCal: "Ajouter au calendrier",
     icsDescription:
       "Rencontrez BAGRAIN sur son stand — le sac à dos à capuche intégrée.",
@@ -339,6 +338,10 @@ const fr = {
         {
           h: "Pourquoi",
           p: "Uniquement pour vous informer du lancement de BAGRAIN et répondre à vos demandes. Vos données ne sont ni revendues, ni partagées à des fins publicitaires.",
+        },
+        {
+          h: "Prise de rendez-vous",
+          p: "La réservation d’un rendez-vous sur notre stand passe par Calendly (Calendly LLC), qui recueille les informations saisies (nom, email, société, fonction, téléphone) pour organiser la rencontre. Voir la politique de confidentialité de Calendly : calendly.com/privacy.",
         },
         {
           h: "Durée et hébergement",
@@ -606,7 +609,6 @@ const en: Dict = {
     place: "Location",
     hallStand: "Hall & stand",
     meet: "Book a meeting at the stand",
-    meetSubject: "Meeting at the BAGRAIN stand",
     addCal: "Add to calendar",
     icsDescription:
       "Meet BAGRAIN at the stand — the backpack with a built-in hood.",
@@ -695,6 +697,10 @@ const en: Dict = {
         {
           h: "Why",
           p: "Solely to keep you informed about the BAGRAIN launch and to answer your requests. Your data is never sold or shared for advertising purposes.",
+        },
+        {
+          h: "Booking a meeting",
+          p: "Meetings at our stand are booked through Calendly (Calendly LLC), which collects the details you enter (name, email, company, job title, phone) to organise the meeting. See Calendly’s privacy policy: calendly.com/privacy.",
         },
         {
           h: "Retention and hosting",

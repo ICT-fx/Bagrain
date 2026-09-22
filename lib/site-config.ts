@@ -29,6 +29,11 @@ export const siteConfig = {
     /** Format ISO : "2026-09-15T09:00:00+02:00" */
     start: "2026-11-04T09:00:00+01:00",
     end: "2026-11-05T18:00:00+01:00",
+    /**
+     * Page de réservation Calendly (créneaux limités aux jours du salon).
+     * Le bouton « Prendre rendez-vous » disparaît après `end`.
+     */
+    bookingUrl: "https://calendly.com/l-bembekoff/bagrain-ispo",
     /** Affichage humain des dates, par langue. */
     datesLabel: {
       fr: "Dates à confirmer",
