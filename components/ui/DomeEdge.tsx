@@ -3,7 +3,7 @@
  * reprend la forme de l'abri, signature du logo.
  */
 export default function DomeEdge({
-  fill = "var(--color-mist)",
+  fill = "var(--color-paper)",
   flip = false,
   className = "",
 }: {

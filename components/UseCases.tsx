@@ -58,7 +58,7 @@ export default function UseCases() {
     <section id="usages" className="section-pad bg-ink">
       <div className="container-site">
         <Reveal>
-          <p className="mono-label text-haze">{t.usecases.kicker}</p>
+          <p className="mono-label kicker text-haze">{t.usecases.kicker}</p>
         </Reveal>
         <Lines
           as="h2"
@@ -74,7 +74,7 @@ export default function UseCases() {
         >
           {t.usecases.cards.map((card, i) => (
             <Reveal key={i} delay={i * 80} className="h-full">
-              <article className="card-hover dome flex h-full min-h-[168px] flex-col justify-end border border-[rgba(242,245,251,0.1)] bg-ink-2 p-4 pt-11 sm:min-h-[240px] sm:p-6 sm:pt-14">
+              <article className="card-hover dome flex h-full min-h-[168px] flex-col items-center justify-center text-center text-balance border border-[rgba(242,245,251,0.1)] bg-ink-2 p-4 pt-11 sm:min-h-[240px] sm:p-6 sm:pt-14">
                 <h3 className="heading-3 text-mist">{card.title}</h3>
                 <p className="mt-2 text-[14px] leading-snug text-mist/65 sm:mt-3 sm:text-[15px] sm:leading-normal">
                   {card.line}

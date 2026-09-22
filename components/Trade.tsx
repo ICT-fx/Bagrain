@@ -33,15 +33,18 @@ export default function Trade() {
         <div className="grid items-start gap-10 sm:gap-12 lg:grid-cols-2">
           <div>
             <Reveal>
-              <p className="mono-label text-haze">{t.salon.kicker}</p>
+              <p className="mono-label kicker text-haze">{t.salon.kicker}</p>
             </Reveal>
             <Lines
               as="h2"
               lines={[t.salon.title]}
-              className="display-l mt-6 text-balance text-mist"
+              /* « Meet us at ISPO » dépasse d'un cheveu la demi-colonne :
+                 le titre prend la largeur de son texte pour tenir sur une
+                 ligne, le débord se perd dans la gouttière. */
+              className="display-l mt-6 w-max whitespace-nowrap text-mist"
             />
             <Reveal delay={120}>
-              <p className="mt-6 max-w-[52ch] text-pretty text-mist/75 sm:mt-7">
+              <p className="mt-6 max-w-[52ch] whitespace-pre-line text-pretty text-mist/75 sm:mt-7">
                 {t.salon.body}
               </p>
             </Reveal>
@@ -53,7 +56,7 @@ export default function Trade() {
                     key={k}
                     className="hairline-t flex items-baseline justify-between gap-6 py-3"
                   >
-                    <dt className="mono-label text-mist/50">{k}</dt>
+                    <dt className="mono-label text-haze">{k}</dt>
                     <dd className="text-right font-mono text-[13px] text-mist/90">
                       {v}
                     </dd>
@@ -82,12 +85,14 @@ export default function Trade() {
             </Reveal>
           </div>
 
-          {/* Photo du stand — source carrée de 1254 px de côté. */}
+          {/* Photo du stand ISPO, cadrée à l’horizontale (1024 × 768, 4:3). Cadre à coins
+              arrondis plutôt qu'en arche : l'arche rognait l'enseigne ISPO
+              dans l'angle haut droit. Même traitement que la photo « Le sac ». */}
           <Reveal delay={150}>
             <figure className="mx-auto w-full max-w-[340px] sm:max-w-[520px]">
-              <div className="dome relative aspect-square border border-[rgba(242,245,251,0.1)] bg-ink-2">
+              <div className="relative aspect-[4/3] overflow-hidden rounded-[14px] border border-[rgba(242,245,251,0.1)] bg-ink-2">
                 <Image
-                  src="/img/stand-salon.webp"
+                  src="/img/stand-ispo-3.jpg"
                   alt={t.salon.photoAlt}
                   fill
                   sizes="(min-width: 640px) 520px, 340px"

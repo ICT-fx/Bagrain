@@ -33,7 +33,7 @@ function SuccessMessage({ show, message }: { show: boolean; message: string }) {
       tabIndex={show ? -1 : undefined}
       className={
         show
-          ? "mt-8 rounded-[4px] border border-lining/40 bg-lining/10 p-4 text-[15px] text-mist"
+          ? "mt-8 rounded-[4px] border border-bagrain/60 bg-bagrain/15 p-4 text-[15px] text-mist"
           : ""
       }
     >
@@ -133,7 +133,7 @@ export default function Signup() {
     <section id="contact" className="section-pad hairline-t bg-ink">
       <div className="container-site">
         <Reveal>
-          <p className="mono-label text-haze">{t.contact.kicker}</p>
+          <p className="mono-label kicker text-haze">{t.contact.kicker}</p>
         </Reveal>
         <Lines
           as="h2"

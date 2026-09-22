@@ -21,14 +21,14 @@ export const siteConfig = {
    * Tant que `confirmed` est false, le site affiche « dates à confirmer ».
    */
   event: {
-    confirmed: false,
-    name: "Salon professionnel",
-    city: "—",
-    hall: "—",
-    stand: "—",
+    confirmed: true,
+    name: "ISPO",
+    city: "Amsterdam, RAI",
+    hall: "BrandNew",
+    stand: "BNB24",
     /** Format ISO : "2026-09-15T09:00:00+02:00" */
-    start: "2026-09-15T09:00:00+02:00",
-    end: "2026-09-17T18:00:00+02:00",
+    start: "2026-11-04T09:00:00+01:00",
+    end: "2026-11-05T18:00:00+01:00",
     /** Affichage humain des dates, par langue. */
     datesLabel: {
       fr: "Dates à confirmer",

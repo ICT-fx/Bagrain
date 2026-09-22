@@ -61,7 +61,7 @@ recopier dans le code. **À relancer à chaque nouvelle livraison de rendus.**
 | --- | --- |
 | `sac-face-avant.webp` | détouré (fond transparent) — hero |
 | `capuche-depliee.webp` | détouré — section « Le sac » |
-| `schema-technique.webp` | légendes anglaises effacées, gardé sur son fond studio — section « Anatomie » |
+| `schema-technique-hd.webp` | recadrage haute définition de la planche sans annotations, sur son fond studio — section « Anatomie » |
 | `stand-salon.webp` | conversion simple — section « Salon » |
 
 Deux constantes dépendent de ces fichiers et sont à recopier si les rendus

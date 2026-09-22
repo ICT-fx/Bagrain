@@ -29,19 +29,19 @@ const fr = {
     cta: "Être prévenu du lancement",
   },
   hero: {
-    kicker: "Nantes · France — Brevet déposé",
-    titleLines: ["Gardez les mains libres.", "Et la tête au sec."],
-    sub: "Le premier sac à dos à capuche intégrée. Rangée en haut du sac, déployée en quelques secondes, elle vous couvre la tête et les épaules pendant que vous continuez à vivre.",
+    kicker: "BAGRAIN® - brevet français",
+    titleLines: ["Garde les mains libres,", "et la tête au sec."],
+    sub: "Une nouvelle solution intégrée au sac pour te protéger de la pluie et continuer tes activités, sans jamais te ralentir. La capuche est déployée en quelques secondes, elle couvre ta tête, tout en gardant tes mains libres.",
     ctaPrimary: "Voir le sac",
     ctaSecondary: "Nous rencontrer au salon",
     scroll: "Défiler",
     imgAlt:
-      "Sac à dos BAGRAIN vu de face, capuche de pluie repliée sur la partie haute du sac",
+      "Sac à dos BAGRAIN vu de face : logo bleu sur le tissu gris, poche avant noire et capuche de pluie repliée en arceau au-dessus du sac",
   },
   problem: {
     kicker: "Le problème",
-    title: "Sous la pluie, on a toujours une main en moins.",
-    body: "Un parapluie occupe une main, se retourne au vent, dégouline dans le métro et s’oublie sur une table. Une capuche de manteau ne tient pas et ne protège pas le sac. Le sac à dos, lui, est déjà sur vos épaules.",
+    title: "La pluie nous ralentit.",
+    body: "Un parapluie occupe une main, se retourne au vent, dégouline dans le métro et s’oublie sur une table. Une capuche de manteau ne tient pas et ne protège pas le sac. Le sac à dos est déjà sur tes épaules.",
     film: {
       alt: "Séquence en boucle du sac BAGRAIN : gros plans sur les bretelles et le tissu, un passant sous la pluie dans une rue de nuit, puis la capuche qui se déploie hors du sac.",
       pause: "Mettre l’animation en pause",
@@ -50,50 +50,50 @@ const fr = {
   },
   intro: {
     kicker: "Le sac",
-    title: "La solution était déjà sur votre dos.",
-    photoAlt:
-      "Deux sacs à dos BAGRAIN vus de dos : à gauche la capuche rangée, à droite la capuche dépliée au-dessus des bretelles",
-    body: "BAGRAIN est un sac à dos urbain et outdoor doté d’une capuche de pluie escamotable. Rangée dans une poche dédiée en haut du sac, elle se déploie en quelques secondes par un jeu de sangles, de crochets et d’aimants — et protège la tête et les épaules sans jamais occuper les mains.",
+    title: "La solution est déjà sur ton dos.",
+    wornAlt:
+      "Une femme vue de dos sur une passerelle mouillée en ville, le sac BAGRAIN sur les épaules, logo bleu bien visible et capuche repliée",
+    body: "BAGRAIN est un sac à dos urbain & outdoor doté d’une capuche. Rangée dans un compartiment adapté en haut du sac, elle se déploie par un tirage de sangles et d’attaches aimantées. Elle protège la tête en laissant les mains libres.",
   },
   steps: {
     kicker: "Comment ça marche",
-    title: "4 gestes. Et vous êtes au sec.",
-    hint: "Continuez à défiler — la capuche se déploie.",
+    title: "3 étapes pour être au sec",
+    hint: "Continue à défiler — la capuche se déploie.",
     items: [
       {
-        title: "Accrocher les crochets",
-        body: "Deux crochets à saisir en haut du sac. C’est le point de départ de la séquence.",
+        title: "Tire les sangles vers le haut",
+        body: "2 sangles magnétisées sur les bretelles du sac.",
       },
       {
-        title: "Enfiler la capuche",
-        body: "Tirez les sangles d’un mouvement circulaire : la capuche passe par-dessus la tête.",
+        title: "Déploie la capuche",
+        body: "La capuche se ferme toute seule grâce aux aimants.",
       },
       {
-        title: "Libérer les aimants",
-        body: "Tirez les sangles vers le bas pour libérer les aimants de leur position de rangement.",
-      },
-      {
-        title: "Fermer sur l’avant",
-        body: "Les aimants se rejoignent et ferment la capuche sur l’avant. Clic. Vous êtes couvert.",
+        title: "La capuche se ferme sur l’avant",
+        body: "Les aimants se rejoignent et ferment la capuche sur l’avant. Tu es couvert.",
       },
     ],
     counters: [
-      { value: 4, prefix: "", suffix: "", label: "gestes" },
-      { value: 6, prefix: "", suffix: "", label: "aimants" },
-      { value: 5, prefix: "≈", suffix: " s", label: "pour se couvrir" },
+      { value: 3, prefix: "", suffix: "", label: "étapes" },
+      { value: 3, prefix: "", suffix: "", label: "paires d’aimants" },
+      { value: 3, prefix: "", suffix: " secondes", label: "pour se couvrir" },
     ],
     stageAlt: [
-      "Étape 1 : capuche rangée dans sa poche en haut du sac, crochets accessibles",
-      "Étape 2 : capuche en cours de déploiement au-dessus du sac",
-      "Étape 3 : capuche enfilée sur la tête, doublure visible",
-      "Étape 4 : capuche fermée sur l’avant par les aimants",
+      "Étape 1 : la main passe par-dessus l’épaule et saisit les tirettes en haut du sac, capuche encore rangée",
+      "Étape 2 : la main tire la sangle vers le bas, la capuche passe sur la tête et les aimants se libèrent",
+      "Étape 3 : la main réunit les aimants sous le menton, la capuche est fermée sur l’avant",
     ],
   },
   anatomy: {
     kicker: "Anatomie",
-    title: "Chaque détail a une raison d’être.",
+    title: "Le souci du détail",
     intro:
-      "Développé avec le bureau d’études OCCO et L’École de Design Nantes Atlantique. Survolez ou touchez les points pour explorer.",
+      "Développé avec le bureau d’études OCCO et L’École de Design Nantes Atlantique.\nClique pour explorer.",
+    shotAlt: [
+      "Un homme sous la pluie en ville, la capuche BAGRAIN déployée sur la tête, téléphone et café en main",
+      "Le sac BAGRAIN vu de face sur fond blanc, capuche repliée en arceau au-dessus du sac, logo bleu sur le tissu gris",
+      "Rendu du sac vu de dos : bretelles rembourrées, mousses dorsales, passant valise et boucle de portage",
+    ],
     figureAlt:
       "Rendu du sac BAGRAIN, de trois quarts dos et de face, avec ses points d’intérêt annotés",
     hotspots: [
@@ -105,7 +105,7 @@ const fr = {
       {
         id: "straps",
         name: "Sangles d’ouverture",
-        desc: "Deux sangles pour déployer la capuche d’un seul mouvement.",
+        desc: "Deux sangles pour déployer la capuche d’un seul geste.",
       },
       {
         id: "cord",
@@ -159,107 +159,92 @@ const fr = {
       },
     ],
     tableTitle: "Fiche technique",
-    specs: [
-      ["Déploiement capuche", "≈ 5 secondes, sans les mains occupées"],
-      ["Structure capuche", "Plaque PE périphérique rigide 1 mm"],
-      ["Pliage", "Bandes thermosoudées guidant la forme du tour de visage"],
-      ["Aimants", "Cousus 1,9 kg ×2 · disques 4,3 kg ×4"],
-      ["Poche principale", "Zip classique"],
-      ["Poche avant", "Zip invisible"],
-      ["Poche secrète", "Contre le dos, zip classique"],
-      ["Bretelle", "Poche badge classique + poche CB anti-RFID"],
-      ["Ordinateur", "17 pouces — 254 × 399 mm, mousses anti-chocs"],
-      ["Visibilité", "Liseré réfléchissant noir sur les arêtes"],
-      ["Portage", "Bretelles rembourrées, mousses dorsales, passant valise"],
-      ["Statut", "Brevet déposé · Marque déposée ®"],
+    tableNote: ["Protection intellectuelle", "Breveté · Marque déposée ®"],
+    // Deux blocs thématiques, un par colonne : SAC à gauche, CAPUCHE à droite
+    // (empilés dans cet ordre sur mobile).
+    specGroups: [
+      {
+        title: "Sac",
+        rows: [
+          ["Poche ordinateur", "Compatible 17 pouces, fond anti-chocs"],
+          ["Poche principale", "Zip étanche"],
+          ["Poche frontale", "Zip étanche dissimulé"],
+          ["Poche secrète", "Contre le dos, zip classique, inaccessible sac porté"],
+          ["Poches bretelles", "Poche CB anti-RFID + poche à badge"],
+          ["Portage", "Bretelles aérées, dos ventilé ergonomique, passant valise"],
+        ],
+      },
+      {
+        title: "Capuche",
+        rows: [
+          ["Déploiement", "En 3 secondes"],
+          ["Structure", "Armature PE (polyéthylène) 1 mm"],
+          ["Maintien de forme", "Bandes thermosoudées guidant la forme du tour de visage"],
+          ["Aimants", "6 aimants néodyme · 1,9 à 4,3 kg de force d’adhérence"],
+          ["Visibilité", "Bandes réfléchissantes"],
+        ],
+      },
     ],
   },
   usecases: {
-    kicker: "Quand ça sert",
-    title: "La pluie n’annule plus rien.",
+    kicker: "Pourquoi BAGRAIN ?",
+    title: "Être mobile partout, même sous la pluie",
     cards: [
       {
-        title: "Sortir sans y penser",
-        line: "L’averse commence, la capuche sort, vous continuez.",
+        title: "Se sentir mieux protégé",
+        line: "La pluie commence, tu as une protection facile à ta disposition, grâce au BAGRAIN.",
       },
       {
-        title: "Photographier, profiter du dehors",
-        line: "Deux mains pour le boîtier, zéro pour le parapluie.",
+        title: "Photographier sans inconvénients",
+        line: "Prendre des photos confortablement, sans être gêné par la pluie.",
       },
       {
-        title: "Répondre au téléphone",
-        line: "Décrocher, écrire, rester au sec — en marchant.",
+        title: "Garder ses mains pour répondre au téléphone",
+        line: "Décrocher, écrire en marchant et au sec.",
       },
       {
-        title: "Déjeuner, festival, stade",
-        line: "Assis dehors, à l’abri, les mains occupées ailleurs.",
-      },
-    ],
-  },
-  why: {
-    kicker: "Pourquoi BAGRAIN",
-    title: "Une idée simple, tenue jusqu’au bout.",
-    items: [
-      {
-        title: "Innovant",
-        body: "Un produit disruptif, universel et polyvalent : la protection pluie intégrée à l’objet que vous portez déjà.",
-      },
-      {
-        title: "Sans équivalent",
-        body: "Aucun produit comparable identifié à ce jour. Demande de brevet déposée.",
-      },
-      {
-        title: "Une communauté",
-        body: "Des utilisateurs et des créateurs qui font vivre le produit, dès avant son lancement.",
-      },
-      {
-        title: "Large public",
-        body: "Des actifs de 15 à 65 ans, en ville comme en montagne, par tous les temps.",
-      },
-      {
-        title: "Souple",
-        body: "E-commerce en Europe, Asie et Amériques, réseau d’agents en Europe : la distribution s’adapte.",
-      },
-      {
-        title: "Expérimenté",
-        body: "Une équipe internationale issue de la bagagerie, du design produit et de l’import-export.",
+        title: "Mieux profiter des événements et du quotidien",
+        line: "Faire des gestes simples avec moins de contraintes.",
       },
     ],
   },
   team: {
     kicker: "L’équipe",
-    title: "Conçu à Nantes, pensé partout.",
+    title: "Que des passionnés !",
     members: [
-      { name: "Paul Duteil", role: "Fondateur & CEO", city: "Vienne, Autriche" },
+      { name: "Lola Bembekoff", role: "Project Manager", city: "Annecy, France" },
       {
         name: "Stéphane Bembekoff",
-        role: "Production & sourcing",
+        role: "Sourcing & Production",
         city: "Hong Kong",
       },
       {
         name: "Olivier Pigasse",
-        role: "Design produit & direction artistique",
+        role: "Design & Développement Produit",
         city: "Nantes, France",
       },
       {
         name: "Quentin Lebrec",
-        role: "Commercial & développement",
-        city: "Innsbruck, Autriche",
+        role: "Ventes & Développement Commercial",
+        city: "Lausanne, Suisse",
       },
-      { name: "Benoit Duteil", role: "Incubateur", city: "France" },
+      { name: "Paul Duteil", role: "CEO & Management", city: "Vienne, Autriche" },
+      { name: "Hippolyte Langlois", role: "Project Contributor", city: "Angers, France" },
     ],
     partnersTitle: "Ils développent le produit avec nous",
     partners: [
-      "OCCO Bureau d’études",
-      "L’École de Design Nantes Atlantique",
-      "SPK Group",
-      "RVDB Intellectual Property",
+      { name: "MEPCO — Incubation & business support", note: "Benoît Duteil, dirigeant" },
+      { name: "OCCO Bureau d’études", note: "" },
+      { name: "L’École de Design Nantes Atlantique", note: "" },
+      { name: "SPK Group", note: "" },
+      { name: "RVDB Intellectual Property", note: "" },
+      { name: "Bpifrance", note: "" },
     ],
   },
   salon: {
     kicker: "Salon",
-    title: "On se voit au salon ?",
-    body: "Un prototype s’essaie mieux qu’il ne se raconte. Passez sur le stand : déployez la capuche vous-même, posez vos questions, repartez avec un contact direct.",
+    title: "RDV à ISPO",
+    body: "Un prototype s’essaie mieux qu’il ne se raconte.\nPasse sur le stand : déploie la capuche toi-même, pose-nous tes questions !",
     eventName: "Nom du salon",
     dates: "Dates",
     place: "Lieu",
@@ -270,16 +255,16 @@ const fr = {
     icsDescription:
       "Rencontrez BAGRAIN sur son stand — le sac à dos à capuche intégrée.",
     photoAlt:
-      "Stand BAGRAIN monté sur un salon professionnel : totems de marque, prototype porté et écran de démonstration",
-    photoNote: "Le stand BAGRAIN — prototype à essayer sur place",
+      "Le stand BAGRAIN à ISPO Amsterdam : mannequin portant le sac capuche déployée, sac posé sur le comptoir et kakémono de présentation",
+    photoNote: "Le stand BAGRAIN : produit à essayer sur place",
   },
   contact: {
     kicker: "Rester au courant",
-    title: "Le lancement approche.",
+    title: "Lancement en approche",
     newsletter: {
       title: "Liste de lancement",
-      body: "Une adresse email, et vous saurez avant tout le monde quand BAGRAIN devient disponible.",
-      emailLabel: "Votre adresse email",
+      body: "Une adresse email, et tu sauras avant tout le monde quand BAGRAIN sera disponible.",
+      emailLabel: "Ton adresse email",
       emailPlaceholder: "prenom@exemple.fr",
       consent:
         "J’accepte que BAGRAIN utilise mon adresse pour m’informer du lancement. Désinscription en un clic, jamais de revente.",
@@ -292,17 +277,17 @@ const fr = {
     },
     pro: {
       title: "Distributeurs, revendeurs, presse",
-      body: "Vous voulez distribuer BAGRAIN, l’essayer, en parler ? Écrivez-nous, on répond vite.",
+      body: "Tu veux distribuer BAGRAIN, l’essayer, en parler ? Écris-nous, on répond vite.",
       name: "Nom",
-      namePlaceholder: "Votre nom",
+      namePlaceholder: "Ton nom",
       email: "Email",
-      emailPlaceholder: "vous@societe.fr",
+      emailPlaceholder: "toi@societe.com",
       company: "Société",
       companyPlaceholder: "Nom de la société",
       country: "Pays",
       countryPlaceholder: "France",
       message: "Message",
-      messagePlaceholder: "Votre demande en quelques lignes…",
+      messagePlaceholder: "Ta demande en quelques lignes…",
       submit: "Envoyer",
       sending: "Envoi en cours…",
       success: "Message reçu. Nous revenons vers vous rapidement.",
@@ -312,7 +297,7 @@ const fr = {
     },
   },
   footer: {
-    baseline: "Gardez les mains libres et la tête au sec.",
+    baseline: "Garde les mains libres, et la tête au sec.",
     navTitle: "Navigation",
     legalTitle: "Légal",
     legal: "Mentions légales",
@@ -402,19 +387,19 @@ const en: Dict = {
     cta: "Get launch updates",
   },
   hero: {
-    kicker: "Nantes · France — Patent pending",
-    titleLines: ["Keep your hands free.", "And your head dry."],
-    sub: "The first backpack with a built-in hood. Stowed in the top pocket, deployed in seconds, it covers your head and shoulders while you get on with your day.",
+    kicker: "BAGRAIN® - French patent",
+    titleLines: ["Keep your hands free,", "and your head dry."],
+    sub: "A new solution integrated into your backpack to protect you from the rain and keep you moving, without ever slowing you down. The hood deploys in seconds, covering your head while keeping your hands free.",
     ctaPrimary: "See the bag",
     ctaSecondary: "Meet us at the show",
     scroll: "Scroll",
     imgAlt:
-      "BAGRAIN backpack seen from the front, rain hood folded over the top of the bag",
+      "BAGRAIN backpack seen from the front: blue logo on grey fabric, black front pocket and rain hood folded as an arch over the top of the bag",
   },
   problem: {
     kicker: "The problem",
-    title: "In the rain, you’re always one hand short.",
-    body: "An umbrella takes a hand, flips in the wind, drips on the metro and gets left on a table. A coat hood won’t stay up and won’t protect your bag. Your backpack is already on your shoulders.",
+    title: "Rain slows us down.",
+    body: "An umbrella takes a hand, flips in the wind, drips on the metro and gets left on a table. A coat hood won’t stay up and won’t protect your bag. The backpack is already on your shoulders.",
     film: {
       alt: "Looping sequence of the BAGRAIN backpack: close-ups of the shoulder straps and fabric, a passer-by in the rain on a night street, then the hood unfolding out of the bag.",
       pause: "Pause the animation",
@@ -423,50 +408,50 @@ const en: Dict = {
   },
   intro: {
     kicker: "The bag",
-    title: "The solution was already on your back.",
-    photoAlt:
-      "Two BAGRAIN backpacks seen from the back: hood stowed on the left, hood deployed above the shoulder straps on the right",
-    body: "BAGRAIN is an urban and outdoor backpack with a retractable rain hood. Stowed in a dedicated pocket at the top of the bag, it deploys in seconds through a system of straps, hooks and magnets — covering your head and shoulders without ever taking a hand.",
+    title: "The solution is already on your back.",
+    wornAlt:
+      "A woman seen from behind on a wet city footbridge, wearing the BAGRAIN backpack, blue logo clearly visible and hood folded",
+    body: "BAGRAIN is an urban & outdoor backpack with an integrated hood. Stored in a dedicated compartment at the top of the backpack, the hood deploys in seconds using straps and magnetic fasteners. It protects your head while keeping your hands free.",
   },
   steps: {
     kicker: "How it works",
-    title: "4 moves. And you stay dry.",
+    title: "3 steps to stay dry",
     hint: "Keep scrolling — the hood deploys.",
     items: [
       {
-        title: "Grab the hooks",
-        body: "Two hooks to grab at the top of the bag. The sequence starts here.",
+        title: "Grab the strap pulls",
+        body: "2 pulls to grab at the top of the bag, then pull down.",
       },
       {
-        title: "Pull the hood on",
-        body: "Pull the straps in a circular motion: the hood swings over your head.",
-      },
-      {
-        title: "Release the magnets",
-        body: "Pull the straps down to release the magnets from their stowed position.",
+        title: "Pull down",
+        body: "Release the magnets from their stowed position.",
       },
       {
         title: "Close at the front",
-        body: "The magnets snap together and close the hood at the front. Click. You’re covered.",
+        body: "The magnets snap together and close the hood at the front. You are covered.",
       },
     ],
     counters: [
-      { value: 4, prefix: "", suffix: "", label: "moves" },
-      { value: 6, prefix: "", suffix: "", label: "magnets" },
-      { value: 5, prefix: "≈", suffix: " s", label: "to get covered" },
+      { value: 3, prefix: "", suffix: "", label: "steps" },
+      { value: 3, prefix: "", suffix: "", label: "pairs of magnets" },
+      { value: 3, prefix: "", suffix: " seconds", label: "to get covered" },
     ],
     stageAlt: [
-      "Step 1: hood stowed in its top pocket, hooks within reach",
-      "Step 2: hood mid-deployment above the bag",
-      "Step 3: hood on, lining visible",
-      "Step 4: hood closed at the front by the magnets",
+      "Step 1: the hand reaches over the shoulder and grabs the pulls at the top of the bag, hood still stowed",
+      "Step 2: the hand pulls the strap down, the hood goes over the head and the magnets are released",
+      "Step 3: the hand brings the magnets together under the chin, hood closed at the front",
     ],
   },
   anatomy: {
     kicker: "Anatomy",
-    title: "Every detail earns its place.",
+    title: "Attention to detail",
     intro:
-      "Developed with the OCCO engineering firm and L’École de Design Nantes Atlantique. Hover or tap the dots to explore.",
+      "Developed with OCCO design office and L’École de Design Nantes Atlantique.\nClick to explore.",
+    shotAlt: [
+      "A man in the rain in the city, the BAGRAIN hood deployed over the head, phone and coffee in hand",
+      "The BAGRAIN backpack seen from the front on a white background, hood folded in an arc above the bag, blue logo on grey fabric",
+      "Render of the bag from the back: padded shoulder straps, back foam panels, suitcase strap and carry loop",
+    ],
     figureAlt:
       "Render of the BAGRAIN bag, three-quarter back and front views, with annotated features",
     hotspots: [
@@ -532,107 +517,90 @@ const en: Dict = {
       },
     ],
     tableTitle: "Spec sheet",
-    specs: [
-      ["Hood deployment", "≈ 5 seconds, hands stay free"],
-      ["Hood structure", "Rigid peripheral PE plate, 1 mm"],
-      ["Folding", "Heat-sealed strips shape the face opening"],
-      ["Magnets", "Sewn-in 1.9 kg ×2 · disc 4.3 kg ×4"],
-      ["Main pocket", "Classic zip"],
-      ["Front pocket", "Invisible zip"],
-      ["Secret pocket", "Against the back, classic zip"],
-      ["Strap", "Classic badge pocket + RFID-blocking card pocket"],
-      ["Laptop", "17 inches — 254 × 399 mm, shock-absorbing foam"],
-      ["Visibility", "Reflective black piping on the edges"],
-      ["Carry", "Padded straps, back foam pads, trolley sleeve"],
-      ["Status", "Patent pending · Registered trademark ®"],
+    tableNote: ["Intellectual property", "Patented · Registered trademark ®"],
+    specGroups: [
+      {
+        title: "Bag",
+        rows: [
+          ["Laptop pocket", "Fits 17-inch laptops, shock-absorbing base"],
+          ["Main pocket", "Waterproof zip"],
+          ["Front pocket", "Concealed waterproof zip"],
+          ["Secret pocket", "Against the back, classic zip, out of reach when worn"],
+          ["Strap pockets", "RFID-blocking card pocket + badge pocket"],
+          ["Carry", "Breathable shoulder straps, ergonomic ventilated back panel, suitcase loop"],
+        ],
+      },
+      {
+        title: "Hood",
+        rows: [
+          ["Deployment", "In 3 seconds"],
+          ["Structure", "PE (polyethylene) frame, 1 mm"],
+          ["Shape retention", "Heat-sealed strips that help maintain the shape of the face contour"],
+          ["Magnets", "6 neodymium magnets · 1.9 to 4.3 kg holding force"],
+          ["Visibility", "Reflective strips"],
+        ],
+      },
     ],
   },
   usecases: {
-    kicker: "When it helps",
-    title: "Rain cancels nothing anymore.",
+    kicker: "Why BAGRAIN?",
+    title: "Stay on the move everywhere, even in the rain",
     cards: [
       {
-        title: "Head out without thinking",
-        line: "The rain starts, the hood comes out, you keep going.",
+        title: "Feel better protected",
+        line: "The rain starts, and easy protection is right at hand, thanks to BAGRAIN.",
       },
       {
-        title: "Shoot photos, stay outside",
-        line: "Both hands for the camera, none for an umbrella.",
+        title: "Take photos, hassle-free",
+        line: "Shoot comfortably, without the rain getting in the way.",
       },
       {
-        title: "Answer the phone",
-        line: "Pick up, type, stay dry — while walking.",
+        title: "Keep your hands free to take calls",
+        line: "Switch off, write whilst walking, and stay dry.",
       },
       {
-        title: "Lunch, festival, stadium",
-        line: "Seated outside, sheltered, hands busy elsewhere.",
-      },
-    ],
-  },
-  why: {
-    kicker: "Why BAGRAIN",
-    title: "A simple idea, carried all the way.",
-    items: [
-      {
-        title: "Innovative",
-        body: "A disruptive, universal, versatile product: rain protection built into the thing you already carry.",
-      },
-      {
-        title: "Unmatched",
-        body: "No comparable product identified to date. Patent application filed.",
-      },
-      {
-        title: "A community",
-        body: "Users and creators bringing the product to life, even before launch.",
-      },
-      {
-        title: "Broad audience",
-        body: "Active people from 15 to 65, in the city and in the mountains, whatever the weather.",
-      },
-      {
-        title: "Flexible",
-        body: "E-commerce across Europe, Asia and the Americas, sales agents in Europe: distribution adapts.",
-      },
-      {
-        title: "Experienced",
-        body: "An international team from the luggage industry, product design and import-export.",
+        title: "Make the most of events and everyday life",
+        line: "Simple everyday moves, with fewer constraints.",
       },
     ],
   },
   team: {
     kicker: "The team",
-    title: "Designed in Nantes, made for everywhere.",
+    title: "Nothing but enthusiasts!",
     members: [
-      { name: "Paul Duteil", role: "Founder & CEO", city: "Vienna, Austria" },
+      { name: "Lola Bembekoff", role: "Project Manager", city: "Annecy, France" },
       {
         name: "Stéphane Bembekoff",
-        role: "Production & sourcing",
+        role: "Sourcing & Production",
         city: "Hong Kong",
       },
       {
         name: "Olivier Pigasse",
-        role: "Product design & art direction",
+        role: "Product Design & Development",
         city: "Nantes, France",
       },
       {
         name: "Quentin Lebrec",
-        role: "Sales & business development",
-        city: "Innsbruck, Austria",
+        role: "Sales & Business Development",
+        city: "Lausanne, Switzerland",
       },
-      { name: "Benoit Duteil", role: "Incubator", city: "France" },
+      { name: "Paul Duteil", role: "CEO & Management", city: "Vienna, Austria" },
+      { name: "Hippolyte Langlois", role: "Project Contributor", city: "Angers, France" },
     ],
-    partnersTitle: "Developing the product with us",
+    partnersTitle: "They are developing the product with us",
     partners: [
-      "OCCO Bureau d’études",
-      "L’École de Design Nantes Atlantique",
-      "SPK Group",
-      "RVDB Intellectual Property",
+      { name: "MEPCO — Incubation & business support", note: "Benoît Duteil, director" },
+      { name: "OCCO Bureau d’études", note: "" },
+      { name: "L’École de Design Nantes Atlantique", note: "" },
+      { name: "SPK Group", note: "" },
+      { name: "RVDB Intellectual Property", note: "" },
+      { name: "Bpifrance", note: "" },
     ],
   },
   salon: {
     kicker: "Trade show",
-    title: "See you at the show?",
-    body: "The prototype is better tried than described. Stop by the stand: deploy the hood yourself, ask your questions, leave with a direct contact.",
+    title: "Meet us at ISPO",
+    body: "A prototype is better experienced than explained.\nStop by our booth: deploy the hood yourself and ask us anything!",
     eventName: "Show name",
     dates: "Dates",
     place: "Location",
@@ -643,12 +611,12 @@ const en: Dict = {
     icsDescription:
       "Meet BAGRAIN at the stand — the backpack with a built-in hood.",
     photoAlt:
-      "BAGRAIN stand set up at a trade show: brand totems, prototype worn on a figure and a demo screen",
-    photoNote: "The BAGRAIN stand — prototype to try on site",
+      "The BAGRAIN stand at ISPO Amsterdam: a mannequin wearing the bag with the hood up, a bag on the counter and a presentation roll-up",
+    photoNote: "The BAGRAIN stand: product to try on site",
   },
   contact: {
     kicker: "Stay in the loop",
-    title: "Launch is coming.",
+    title: "Launch approaching",
     newsletter: {
       title: "Launch list",
       body: "One email address, and you’ll know before anyone else when BAGRAIN becomes available.",
@@ -665,7 +633,7 @@ const en: Dict = {
     },
     pro: {
       title: "Distributors, retailers, press",
-      body: "Want to distribute BAGRAIN, try it, or write about it? Drop us a line — we answer fast.",
+      body: "Want to distribute BAGRAIN, try it, or write about it? Drop us a line, we answer fast.",
       name: "Name",
       namePlaceholder: "Your name",
       email: "Email",

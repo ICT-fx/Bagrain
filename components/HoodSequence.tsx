@@ -5,6 +5,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useLang } from "@/components/LangProvider";
 import BagFigure, { type Stage } from "@/components/svg/BagFigure";
+import RainLayer from "@/components/svg/RainLayer";
 import Counter from "@/components/ui/Counter";
 import Reveal from "@/components/ui/Reveal";
 import { prefersReducedMotion } from "@/lib/animations";
@@ -15,6 +16,9 @@ import { prefersReducedMotion } from "@/lib/animations";
  * remplaçables par une séquence d'images — voir README) et l'activation
  * des 4 étapes. En mouvement réduit : liste verticale classique.
  */
+/** Une étape = un rendu : ce que dit le texte, le dessin le montre. */
+const STEP_COUNT = 3;
+
 export default function HoodSequence() {
   const { t } = useLang();
   const wrapRef = useRef<HTMLDivElement>(null);
@@ -49,9 +53,9 @@ export default function HoodSequence() {
         if (fillRef.current) {
           fillRef.current.style.transform = `scaleX(${p})`;
         }
-        // Les centres des rendus 1 et 4 tombent sur les bornes 0 et 1 :
-        // le sac est pleinement opaque à l'entrée comme à la sortie.
-        const u = 0.5 + p * 3;
+        // Chaque rendu occupe son tiers de course ; bornée, la position garde
+        // le premier et le dernier rendu pleins à l'entrée comme à la sortie.
+        const u = Math.min(STEP_COUNT - 0.5, Math.max(0.5, p * STEP_COUNT));
         // Crossfade : chaque rendu est plein au centre de sa fenêtre.
         stageRefs.current.forEach((el, i) => {
           if (!el) return;
@@ -59,7 +63,7 @@ export default function HoodSequence() {
           const o = Math.max(0, Math.min(1, 1 - Math.max(0, d - 0.32) / 0.36));
           el.style.opacity = String(o);
         });
-        const step = Math.min(3, Math.floor(u));
+        const step = Math.min(STEP_COUNT - 1, Math.floor(p * STEP_COUNT));
         if (step !== current) {
           current = step;
           setActiveStep(step);
@@ -76,7 +80,7 @@ export default function HoodSequence() {
     return (
       <section id="solution" className="section-pad bg-ink">
         <div className="container-site">
-          <p className="mono-label text-haze">{t.steps.kicker}</p>
+          <p className="mono-label kicker text-haze">{t.steps.kicker}</p>
           <h2 className="display-l mt-6 max-w-[20ch] text-mist">
             {t.steps.title}
           </h2>
@@ -87,7 +91,7 @@ export default function HoodSequence() {
                 className="grid items-center gap-6 md:grid-cols-[1fr_320px] md:gap-8"
               >
                 <div>
-                  <p className="mono-label text-lining">
+                  <p className="mono-label text-bagrain">
                     {String(i + 1).padStart(2, "0")}
                   </p>
                   <h3 className="heading-3 mt-3 text-mist">{step.title}</h3>
@@ -112,7 +116,7 @@ export default function HoodSequence() {
       {/*
        * Jauge de séquence, collée sous la nav. Le scroll est capté par la
        * section pendant 400vh : sans repère, l'arrêt de la page se lit comme
-       * un blocage. Les trois encoches marquent les changements d'étape.
+       * un blocage. Les deux encoches marquent les changements d'étape.
        */}
       <div
         ref={barRef}
@@ -123,10 +127,10 @@ export default function HoodSequence() {
         <div className="relative h-[3px] w-full bg-[rgba(242,245,251,0.14)]">
           <div
             ref={fillRef}
-            className="h-full w-full origin-left bg-lining"
+            className="h-full w-full origin-left bg-bagrain"
             style={{ transform: "scaleX(0)" }}
           />
-          {[1 / 6, 1 / 2, 5 / 6].map((p) => (
+          {[1 / 3, 2 / 3].map((p) => (
             <span
               key={p}
               className="absolute top-0 h-full w-[3px] -translate-x-1/2 bg-ink"
@@ -146,7 +150,7 @@ export default function HoodSequence() {
           <div className="container-site flex min-h-0 flex-1 flex-col pt-[calc(var(--nav-h)+8px)] lg:grid lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:items-center lg:gap-12">
             {/* Étapes */}
             <div className="order-2 pb-6 lg:order-1 lg:pb-0">
-              <p className="mono-label hidden text-haze lg:block">
+              <p className="mono-label kicker hidden text-haze lg:block">
                 {t.steps.kicker}
               </p>
               {/* sr-only sous lg : le titre reste dans l'arbre
@@ -167,7 +171,7 @@ export default function HoodSequence() {
                     >
                       <span
                         className={`mono-label transition-colors duration-300 ${
-                          active ? "text-lining" : "text-mist/50"
+                          active ? "text-bagrain" : "text-mist/50"
                         }`}
                       >
                         {String(i + 1).padStart(2, "0")}
@@ -175,11 +179,11 @@ export default function HoodSequence() {
                       <div className="min-w-0">
                         <h3 className="heading-3 flex items-center gap-3 text-mist">
                           {step.title}
-                          {i === 3 && (
+                          {i === steps.length - 1 && (
                             <span
                               aria-hidden="true"
                               className={`inline-flex items-center gap-[14px] ${
-                                active && activeStep === 3 ? "magnets-on" : ""
+                                active ? "magnets-on" : ""
                               }`}
                             >
                               <span className="magnet-dot magnet-dot-l h-[7px] w-[7px] rounded-full bg-[#d8dce3]" />
@@ -199,14 +203,19 @@ export default function HoodSequence() {
                   );
                 })}
               </ol>
-              <p className="mono-label mt-4 text-mist/55 lg:mt-8">
+              <p className="mono-label mt-4 text-bagrain lg:mt-8">
                 {t.steps.hint}
               </p>
             </div>
 
             {/* Visuel scrubbé */}
             <div className="relative order-1 min-h-0 flex-1 lg:order-2 lg:h-[78vh] lg:flex-none">
-              {([1, 2, 3, 4] as const).map((stage, i) => (
+              {/* Pluie commune aux 3 rendus, derrière la silhouette : elle ne
+                  s'interrompt pas pendant les fondus. */}
+              <div className="absolute inset-0 flex items-center justify-center">
+                <RainLayer className="h-full max-h-[74vh] w-auto max-w-full" />
+              </div>
+              {([1, 2, 3] as const).map((stage, i) => (
                 <div
                   key={stage}
                   ref={(el) => {
@@ -239,13 +248,19 @@ function CountersRow() {
     <Reveal className="mt-4 pb-12 sm:pb-16 lg:pb-20">
       <div className="hairline-t grid grid-cols-3 gap-4 pt-8 sm:gap-6 sm:pt-10">
         {t.steps.counters.map((c, i) => (
-          <div key={i}>
+          <div key={i} className="text-center">
             <p className="display-l text-mist">
               <Counter
                 value={c.value as number}
                 prefix={c.prefix as string}
-                suffix={c.suffix as string}
               />
+              {/* Unité en retrait du chiffre : « 5 secondes » tient sur la
+                  largeur d'une colonne, même sur téléphone. */}
+              {c.suffix && (
+                <span className="ml-[0.2em] text-[0.4em] tracking-normal">
+                  {(c.suffix as string).trim()}
+                </span>
+              )}
             </p>
             <p className="mono-label mt-2 text-mist/50">{c.label}</p>
           </div>

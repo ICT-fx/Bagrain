@@ -19,7 +19,6 @@ const SmoothScroll = dynamic(() => import("@/components/SmoothScroll"), {
 const HoodSequence = dynamic(() => import("@/components/HoodSequence"));
 const Anatomy = dynamic(() => import("@/components/Anatomy"));
 const UseCases = dynamic(() => import("@/components/UseCases"));
-const Why = dynamic(() => import("@/components/Why"));
 const Team = dynamic(() => import("@/components/Team"));
 const Trade = dynamic(() => import("@/components/Trade"));
 const Signup = dynamic(() => import("@/components/Signup"));
@@ -46,7 +45,6 @@ export default function Home() {
         <HoodSequence />
         <Anatomy />
         <UseCases />
-        <Why />
         <Team />
         <Trade />
         <Signup />

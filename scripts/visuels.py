@@ -15,10 +15,10 @@ Trois traitements :
   l'objet, puis rattrapage des trouées de fond enfermées par les bretelles.
   Le bord est reconstruit depuis la luminance et sa couleur décontaminée,
   sans quoi un liseré blanc borde l'objet sur fond sombre.
-* **désannotation** (`Image technique`) — la planche « Bag synthesis » est
-  légendée en anglais : lignes de rappel, textes et pastilles numérotées sont
-  effacés par inpainting. Pas de détourage ici : la face avant du second sac
-  est aussi sombre que son ombre portée, aucun seuil ne les sépare.
+* **planche** (`Planche sans annotations.jpg`) — page 1 du « Dossier textile
+  V2 sans annotations » d'OCCO rendue à 3× : simple recadrage haute
+  définition. L'ancienne voie (`desannoter`, inpainting des légendes de la
+  planche basse définition) laissait des bavures et un rendu flou.
 * **conversion** (`Image stand`) — simple passage en WebP.
 
 Dépendances : numpy, scipy, scikit-image, opencv-python, Pillow, et `cwebp`
@@ -67,8 +67,16 @@ PLANCHE_TIPS = {
 }
 
 
-def detourer(path: Path, floor: float = 45, step: float = 14) -> Image.Image:
-    """Détoure un rendu posé sur fond studio blanc, ombre portée comprise."""
+def detourer(path: Path, floor: float = 45, step: float = 14,
+             trous: bool = True) -> Image.Image:
+    """Détoure un rendu posé sur fond studio blanc, ombre portée comprise.
+
+    `trous=False` désactive le rattrapage des trouées de fond : à utiliser
+    quand le sujet porte lui-même un aplat blanc (la plaque logo du rendu
+    du hero, dont le dôme et le « BAG » sont blancs sur bleu). Le critère
+    ne peut pas les distinguer du studio — ils ont la même luminance — et
+    les percerait, laissant le fond du site traverser le logo.
+    """
     rgb = np.asarray(Image.open(path).convert("RGB")).astype(np.float32)
     lum = rgb @ LUMA
     h, w = lum.shape
@@ -95,7 +103,7 @@ def detourer(path: Path, floor: float = 45, step: float = 14) -> Image.Image:
     # érosion — un reflet spéculaire, lui, est trop fin pour y résister.
     gaps = ndimage.binary_erosion(core & (lum > 235), iterations=1)
     lab, n = ndimage.label(gaps)
-    if n:
+    if n and trous:
         sizes = ndimage.sum(gaps, lab, range(1, n + 1))
         big = np.isin(lab, 1 + np.flatnonzero(sizes >= 60))
         core &= ~ndimage.binary_dilation(big, iterations=2)
@@ -182,6 +190,25 @@ def desannoter(path: Path) -> Image.Image:
     return Image.fromarray(clean).crop(PLANCHE_CROP)
 
 
+# Recalage de l'ancienne planche légendée (1656 × 950) sur la page « sans
+# annotations » du Dossier textile V2 rendue à 3× (5760 × 3240) : moindres
+# carrés sur les boîtes des deux sacs, écart < 0,3 %. Le recadrage reste donc
+# défini dans le repère d'origine et les points chauds ne bougent pas.
+HD_SCALE = (3.3668, 69.53, 3.3536, 122.15)
+
+
+def planche_hd(path: Path, largeur: int = 1830) -> Image.Image:
+    """Recadre la planche sans annotations, haute définition."""
+    sx, ox, sy, oy = HD_SCALE
+    x0, y0, x1, y1 = PLANCHE_CROP
+    Image.MAX_IMAGE_PIXELS = None
+    img = Image.open(path).convert("RGB").crop(
+        (round(x0 * sx + ox), round(y0 * sy + oy),
+         round(x1 * sx + ox), round(y1 * sy + oy)))
+    return img.resize((largeur, round(img.height * largeur / img.width)),
+                      Image.LANCZOS)
+
+
 def webp(img: Image.Image, dest: Path, quality: int) -> None:
     with tempfile.NamedTemporaryFile(suffix=".png") as tmp:
         img.save(tmp.name)
@@ -214,8 +241,8 @@ def main() -> None:
     capuche = detourer(ROOT / "Image Capuche dépliée.png")
     webp(capuche, OUT / "capuche-depliee.webp", 92)
 
-    planche = desannoter(ROOT / "Image technique.  .png")
-    webp(planche, OUT / "schema-technique.webp", 90)
+    webp(planche_hd(ROOT / "Planche sans annotations.jpg"),
+         OUT / "schema-technique-hd.webp", 90)
 
     webp(Image.open(ROOT / "Image stand.png").convert("RGB"),
          OUT / "stand-salon.webp", 86)

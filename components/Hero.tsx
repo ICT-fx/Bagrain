@@ -86,7 +86,7 @@ export default function Hero() {
           {/* Texte */}
           <div>
             <Reveal onLoad delay={350}>
-              <p className="mono-label text-haze">{t.hero.kicker}</p>
+              <p className="mono-label kicker text-haze">{t.hero.kicker}</p>
             </Reveal>
             <Lines
               onLoad
@@ -113,18 +113,18 @@ export default function Hero() {
           </div>
 
           {/* Le sac, seul, en lévitation. Sur grand écran c'est la hauteur
-              du viewport qui plafonne sa taille — à 0,607 de ratio, un sac
+              du viewport qui plafonne sa taille — à 0,771 de ratio, un sac
               large devient vite plus haut que le hero. */}
           <Reveal
             onLoad
             delay={650}
-            className="relative w-full max-w-[min(100%,248px)] justify-self-center sm:max-w-[min(100%,360px)] lg:max-w-[min(560px,calc(70svh*0.607))] lg:justify-self-end"
+            className="relative w-full max-w-[min(100%,240px)] justify-self-center sm:max-w-[min(100%,340px)] lg:max-w-[min(520px,calc(72svh*0.771))] lg:justify-self-end"
           >
             <div ref={parallaxRef} className="will-change-transform">
               <div className="floaty">
                 <div ref={productRef} className="relative">
                   <Image
-                    src="/img/sac-face-avant.webp"
+                    src="/img/sac-hero-capuche-repliee.webp"
                     alt={t.hero.imgAlt}
                     width={BAG_IMAGE.width}
                     height={BAG_IMAGE.height}

@@ -15,15 +15,16 @@ import Lines from "@/components/ui/Lines";
  * initiales.
  */
 const PORTRAITS: Record<string, string> = {
-  "Paul Duteil": "/img/team/paul-duteil.jpg",
-  "Stéphane Bembekoff": "/img/team/stephane-bembekoff.jpg",
-  "Olivier Pigasse": "/img/team/olivier-pigasse.jpg",
-  "Quentin Lebrec": "/img/team/quentin-lebrec.jpg",
-  "Benoit Duteil": "/img/team/benoit-duteil.jpg",
+  "Lola Bembekoff": "/img/team/lola-bembekoff.jpg",
+  "Paul Duteil": "/img/team/paul-duteil-2.jpg",
+  "Stéphane Bembekoff": "/img/team/stephane-bembekoff-4.jpg",
+  "Olivier Pigasse": "/img/team/olivier-pigasse-2.jpg",
+  "Quentin Lebrec": "/img/team/quentin-lebrec-2.jpg",
+  "Hippolyte Langlois": "/img/team/hippolyte-langlois.jpg",
 };
 
 /**
- * Section claire : 5 portraits, format vertical homogène.
+ * Section claire : 6 portraits, format vertical homogène.
  */
 export default function Team() {
   const { t } = useLang();
@@ -31,10 +32,10 @@ export default function Team() {
   return (
     <section id="equipe" className="relative bg-ink">
       <DomeEdge />
-      <div className="on-light relative bg-mist pb-[clamp(56px,7.5vw,128px)] pt-[clamp(32px,4.5vw,72px)] text-ink">
+      <div className="on-light relative bg-paper pb-[clamp(56px,7.5vw,128px)] pt-[clamp(32px,4.5vw,72px)] text-ink">
         <div className="container-site">
           <Reveal>
-            <p className="mono-label text-bagrain">{t.team.kicker}</p>
+            <p className="mono-label kicker text-bagrain">{t.team.kicker}</p>
           </Reveal>
           <Lines
             as="h2"
@@ -42,9 +43,9 @@ export default function Team() {
             className="display-l mt-6 max-w-[18ch] text-balance text-ink"
           />
 
-          {/* 5 portraits : une rangée pleine sur grand écran, 3 + 2 sur
-              tablette, 2 par ligne sur mobile. */}
-          <ul className="mt-8 grid grid-cols-2 gap-4 sm:mt-12 sm:grid-cols-3 sm:gap-5 lg:grid-cols-5">
+          {/* 6 portraits : deux rangées de 3 dès la tablette, 2 par ligne
+              sur mobile. */}
+          <ul className="mt-8 grid grid-cols-2 gap-4 sm:mt-12 sm:grid-cols-3 sm:gap-5">
             {t.team.members.map((m, i) => {
               const name = m.name as string;
               const portrait = PORTRAITS[name];
@@ -54,7 +55,7 @@ export default function Team() {
                 .join("");
               return (
                 <Reveal as="li" key={name} delay={i * 80}>
-                  <article>
+                  <article className="text-center">
                     <div className="dome relative aspect-[3/4] overflow-hidden bg-gradient-to-b from-ink-2 to-ink ring-1 ring-[rgba(7,14,42,0.1)]">
                       {portrait ? (
                         <>
@@ -95,7 +96,7 @@ export default function Team() {
 
           {/* Frise partenaires : défilement infini très lent */}
           <Reveal className="mt-10 sm:mt-14">
-            <p className="mono-label text-ink/60">{t.team.partnersTitle}</p>
+            <p className="mono-label text-bagrain">{t.team.partnersTitle}</p>
             <div
               className="marquee mt-6 overflow-hidden border-y border-[rgba(7,14,42,0.12)] py-5 sm:py-6"
               aria-label={t.team.partnersTitle}
@@ -109,10 +110,17 @@ export default function Team() {
                   >
                     {t.team.partners.map((p) => (
                       <span
-                        key={`${dup}-${p}`}
-                        className="mono-label whitespace-nowrap text-ink/60 transition-colors duration-300 hover:text-bagrain"
+                        key={`${dup}-${p.name}`}
+                        className="mono-label whitespace-nowrap text-center text-ink/60 transition-colors duration-300 hover:text-bagrain"
                       >
-                        {p}
+                        {p.name}
+                        {/* Le contact du partenaire passe sous son nom :
+                            deux informations, deux lignes. */}
+                        {p.note ? (
+                          <span className="mt-1 block normal-case tracking-normal text-ink/45">
+                            {p.note}
+                          </span>
+                        ) : null}
                       </span>
                     ))}
                   </div>
@@ -122,7 +130,7 @@ export default function Team() {
           </Reveal>
         </div>
       </div>
-      <DomeEdge flip className="bg-ink" fill="var(--color-mist)" />
+      <DomeEdge flip className="bg-ink" fill="var(--color-paper)" />
     </section>
   );
 }

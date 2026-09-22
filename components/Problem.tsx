@@ -24,7 +24,7 @@ export default function Problem() {
         <div className="grid items-center gap-10 lg:grid-cols-12 lg:gap-14">
           <div className="lg:col-span-7">
             <Reveal>
-              <p className="mono-label text-haze">{t.problem.kicker}</p>
+              <p className="mono-label kicker text-haze">{t.problem.kicker}</p>
             </Reveal>
             <Lines
               as="h2"
