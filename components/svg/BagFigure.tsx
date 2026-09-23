@@ -321,10 +321,11 @@ export default function BagFigure({
               {/* Aimant libéré de sa position de rangement */}
               <circle cx="209" cy="318" r="11" fill="none" stroke={C.accent} strokeWidth="1.5" />
               <circle cx="209" cy="318" r="5" fill={C.metal} />
-              {/* Geste : tirer vers le bas */}
+              {/* Geste : tirer vers le haut, comme le dit l'étape 1 —
+                  la capuche vient alors se déposer au-dessus de la tête. */}
               <g fill="none" stroke={C.accent} strokeWidth="2" strokeLinecap="round">
-                <path d="M160 322 V416" strokeDasharray="4 7" />
-                <path d="M160 418 l-8 -11 m8 11 l8 -11" />
+                <path d="M160 416 V326" strokeDasharray="4 7" />
+                <path d="M160 324 l-8 11 m8 -11 l8 11" />
               </g>
               <Arm d="M298 336 C296 380 294 420 292 452 C268 440 244 424 222 404" />
               <Hand cx={220} cy={402} />

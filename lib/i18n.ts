@@ -66,7 +66,7 @@ const fr = {
       },
       {
         title: "Déploie la capuche",
-        body: "La capuche se ferme toute seule grâce aux aimants.",
+        body: "La capuche vient se déposer au-dessus de ta tête pour te protéger.",
       },
       {
         title: "La capuche se ferme sur l’avant",
@@ -79,8 +79,8 @@ const fr = {
       { value: 3, prefix: "", suffix: " secondes", label: "pour se couvrir" },
     ],
     stageAlt: [
-      "Étape 1 : la main passe par-dessus l’épaule et saisit les tirettes en haut du sac, capuche encore rangée",
-      "Étape 2 : la main tire la sangle vers le bas, la capuche passe sur la tête et les aimants se libèrent",
+      "Étape 1 : la main passe par-dessus l’épaule et tire les sangles vers le haut, capuche encore rangée",
+      "Étape 2 : la capuche sort du sac et se dépose au-dessus de la tête, les aimants se libèrent",
       "Étape 3 : la main réunit les aimants sous le menton, la capuche est fermée sur l’avant",
     ],
   },
@@ -422,15 +422,15 @@ const en: Dict = {
     hint: "Keep scrolling — the hood deploys.",
     items: [
       {
-        title: "Grab the strap pulls",
-        body: "2 pulls to grab at the top of the bag, then pull down.",
+        title: "Pull the straps up",
+        body: "2 magnetic straps on the bag’s shoulder straps.",
       },
       {
-        title: "Pull down",
-        body: "Release the magnets from their stowed position.",
+        title: "Deploy the hood",
+        body: "The hood settles over your head to protect you.",
       },
       {
-        title: "Close at the front",
+        title: "The hood closes at the front",
         body: "The magnets snap together and close the hood at the front. You are covered.",
       },
     ],
@@ -440,8 +440,8 @@ const en: Dict = {
       { value: 3, prefix: "", suffix: " seconds", label: "to get covered" },
     ],
     stageAlt: [
-      "Step 1: the hand reaches over the shoulder and grabs the pulls at the top of the bag, hood still stowed",
-      "Step 2: the hand pulls the strap down, the hood goes over the head and the magnets are released",
+      "Step 1: the hand reaches over the shoulder and pulls the straps up, hood still stowed",
+      "Step 2: the hood comes out of the bag and settles over the head, the magnets are released",
       "Step 3: the hand brings the magnets together under the chin, hood closed at the front",
     ],
   },
