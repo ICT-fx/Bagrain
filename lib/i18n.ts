@@ -312,7 +312,7 @@ const fr = {
       blocks: [
         {
           h: "Éditeur",
-          p: "BAGRAIN — société fondée en février 2025 à Nantes, France. Directeur de la publication : Paul Duteil.",
+          p: "BAGRAIN, société par actions simplifiée au capital de 65 000 €, immatriculée au RCS de Nantes sous le numéro 940 333 925. Siège social : 1 rue du Fondeur, 44800 Saint-Herblain, France. N° TVA intracommunautaire : FR63 940 333 925. Directeur de la publication : Paul Duteil.",
         },
         {
           h: "Hébergement",
@@ -671,7 +671,7 @@ const en: Dict = {
       blocks: [
         {
           h: "Publisher",
-          p: "BAGRAIN — company founded in February 2025 in Nantes, France. Publishing director: Paul Duteil.",
+          p: "BAGRAIN, a French société par actions simplifiée (simplified joint-stock company) with a share capital of €65,000, registered with the Nantes Trade and Companies Register under number 940 333 925. Registered office: 1 rue du Fondeur, 44800 Saint-Herblain, France. VAT number: FR63 940 333 925. Publishing director: Paul Duteil.",
         },
         {
           h: "Hosting",

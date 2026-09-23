@@ -71,6 +71,16 @@ const jsonLd = {
       logo: `${siteConfig.url}/icon`,
       foundingDate: "2025-02",
       foundingLocation: { "@type": "Place", name: "Nantes, France" },
+      legalName: "BAGRAIN SAS",
+      vatID: "FR63940333925",
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "1 rue du Fondeur",
+        postalCode: "44800",
+        addressLocality: "Saint-Herblain",
+        addressCountry: "FR",
+      },
+      email: siteConfig.contactEmail,
       slogan: "Keep your hands free and your head dry",
     },
     {
