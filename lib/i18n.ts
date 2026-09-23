@@ -9,7 +9,7 @@ const fr = {
   meta: {
     title: "BAGRAIN® — Le sac à dos à capuche intégrée",
     description:
-      "Un sac à dos avec une capuche de pluie intégrée qui se déploie en quelques secondes. Gardez les mains libres et la tête au sec. Conçu à Nantes, brevet déposé.",
+      "Un sac à dos avec une capuche de pluie intégrée qui se déploie en quelques secondes. Garde les mains libres et la tête au sec. Conçu à Nantes, brevet français.",
   },
   a11y: {
     skip: "Aller au contenu",
@@ -29,9 +29,9 @@ const fr = {
     cta: "Être prévenu du lancement",
   },
   hero: {
-    kicker: "BAGRAIN® - brevet français",
+    kicker: "BAGRAIN® — brevet français",
     titleLines: ["Garde les mains libres,", "et la tête au sec."],
-    sub: "Une nouvelle solution intégrée au sac pour te protéger de la pluie et continuer tes activités, sans jamais te ralentir. La capuche est déployée en quelques secondes, elle couvre ta tête, tout en gardant tes mains libres.",
+    sub: "Une nouvelle solution intégrée au sac pour te protéger de la pluie et continuer tes activités, sans jamais te ralentir. La capuche se déploie en quelques secondes et couvre ta tête, sans occuper tes mains.",
     ctaPrimary: "Voir le sac",
     ctaSecondary: "Nous rencontrer au salon",
     scroll: "Défiler",
@@ -61,12 +61,12 @@ const fr = {
     hint: "Continue à défiler — la capuche se déploie.",
     items: [
       {
-        title: "Tire les sangles vers le haut",
-        body: "2 sangles magnétisées sur les bretelles du sac.",
+        title: "Attrape les tirettes",
+        body: "2 tirettes aimantées sur les bretelles du sac.",
       },
       {
-        title: "Déploie la capuche",
-        body: "La capuche se ferme toute seule grâce aux aimants.",
+        title: "Tire vers le bas",
+        body: "La capuche sort de sa poche et passe sur ta tête.",
       },
       {
         title: "La capuche se ferme sur l’avant",
@@ -120,7 +120,7 @@ const fr = {
       {
         id: "trolley",
         name: "Passant valise",
-        desc: "Glissez le sac sur la poignée d’un trolley en déplacement.",
+        desc: "Glisse le sac sur la poignée d’un trolley en déplacement.",
       },
       {
         id: "foam",
@@ -134,7 +134,7 @@ const fr = {
       },
       {
         id: "bottle",
-        name: "Poches bidon",
+        name: "Poches bouteille",
         desc: "Extensibles, et parfaitement à plat quand elles ne servent pas.",
       },
       {
@@ -149,8 +149,8 @@ const fr = {
       },
       {
         id: "rfid",
-        name: "Poche CB anti-RFID",
-        desc: "Sur la bretelle : votre carte reste illisible pour les scanners.",
+        name: "Poche à carte anti-RFID",
+        desc: "Sur la bretelle : ta carte reste illisible pour les scanners.",
       },
       {
         id: "laptop",
@@ -170,7 +170,7 @@ const fr = {
           ["Poche principale", "Zip étanche"],
           ["Poche frontale", "Zip étanche dissimulé"],
           ["Poche secrète", "Contre le dos, zip classique, inaccessible sac porté"],
-          ["Poches bretelles", "Poche CB anti-RFID + poche à badge"],
+          ["Poches bretelles", "Poche à carte anti-RFID + poche à badge"],
           ["Portage", "Bretelles aérées, dos ventilé ergonomique, passant valise"],
         ],
       },
@@ -195,7 +195,7 @@ const fr = {
         line: "La pluie commence, tu as une protection facile à ta disposition, grâce au BAGRAIN.",
       },
       {
-        title: "Photographier sans inconvénients",
+        title: "Photographier sans inconvénient",
         line: "Prendre des photos confortablement, sans être gêné par la pluie.",
       },
       {
@@ -269,10 +269,10 @@ const fr = {
         "J’accepte que BAGRAIN utilise mon adresse pour m’informer du lancement. Désinscription en un clic, jamais de revente.",
       submit: "Me prévenir",
       sending: "Envoi en cours…",
-      success: "C’est noté. Vous serez parmi les premiers prévenus.",
-      errorInvalid: "Adresse email invalide — vérifiez le format.",
-      errorConsent: "Cochez la case de consentement pour continuer.",
-      errorServer: "L’envoi a échoué. Réessayez dans un instant.",
+      success: "C’est noté. Tu seras parmi les premiers prévenus.",
+      errorInvalid: "Adresse email invalide — vérifie le format.",
+      errorConsent: "Coche la case de consentement pour continuer.",
+      errorServer: "L’envoi a échoué. Réessaie dans un instant.",
     },
     pro: {
       title: "Distributeurs, revendeurs, presse",
@@ -289,10 +289,10 @@ const fr = {
       messagePlaceholder: "Ta demande en quelques lignes…",
       submit: "Envoyer",
       sending: "Envoi en cours…",
-      success: "Message reçu. Nous revenons vers vous rapidement.",
-      errorRequired: "Nom, email et message sont nécessaires pour vous répondre.",
-      errorInvalid: "Adresse email invalide — vérifiez le format.",
-      errorServer: "L’envoi a échoué. Réessayez dans un instant.",
+      success: "Message reçu. On revient vers toi rapidement.",
+      errorRequired: "Nom, email et message sont nécessaires pour te répondre.",
+      errorInvalid: "Adresse email invalide — vérifie le format.",
+      errorServer: "L’envoi a échoué. Réessaie dans un instant.",
     },
   },
   footer: {
@@ -303,7 +303,7 @@ const fr = {
     privacy: "Politique de confidentialité",
     followTitle: "Suivre",
     credits:
-      "BAGRAIN® — marque déposée · demande de brevet déposée · Nantes, France · © 2026",
+      "BAGRAIN® — marque déposée · brevet français · Nantes, France · © 2026",
   },
   legal: {
     backHome: "Retour au site",
@@ -312,15 +312,15 @@ const fr = {
       blocks: [
         {
           h: "Éditeur",
-          p: "BAGRAIN — société fondée en février 2025 à Nantes, France. [Raison sociale, forme juridique, capital, SIREN et adresse du siège à compléter avant mise en ligne.] Directeur de la publication : Paul Duteil.",
+          p: "BAGRAIN — société fondée en février 2025 à Nantes, France. Directeur de la publication : Paul Duteil.",
         },
         {
           h: "Hébergement",
-          p: "Site hébergé par Vercel Inc., 340 S Lemon Ave #4133, Walnut, CA 91789, États-Unis — vercel.com. [À adapter si l’hébergeur change ; privilégier une région d’hébergement UE.]",
+          p: "Site hébergé par Vercel Inc., 340 S Lemon Ave #4133, Walnut, CA 91789, États-Unis — vercel.com.",
         },
         {
           h: "Propriété intellectuelle",
-          p: "BAGRAIN® est une marque déposée. Le produit fait l’objet d’une demande de brevet déposée. L’ensemble des contenus de ce site (textes, visuels, logo) est protégé ; toute reproduction sans autorisation est interdite.",
+          p: "BAGRAIN® est une marque déposée. Le produit est protégé par un brevet français. L’ensemble des contenus de ce site (textes, visuels, logo) est protégé ; toute reproduction sans autorisation est interdite.",
         },
         {
           h: "Contact",
@@ -370,14 +370,14 @@ const en: Dict = {
   meta: {
     title: "BAGRAIN® — The backpack with a built-in hood",
     description:
-      "A backpack with a built-in rain hood that deploys in seconds. Keep your hands free and your head dry. Designed in Nantes, patent pending.",
+      "A backpack with a built-in rain hood that deploys in seconds. Keep your hands free and your head dry. Designed in Nantes, French patent granted.",
   },
   a11y: {
     skip: "Skip to content",
     langSwitch: "Switch language",
     openMenu: "Open menu",
     closeMenu: "Close menu",
-    home: "BAGRAIN — back to top",
+    home: "BAGRAIN — back to home",
     mainNav: "Main navigation",
     mobileNav: "Mobile navigation",
   },
@@ -390,7 +390,7 @@ const en: Dict = {
     cta: "Get launch updates",
   },
   hero: {
-    kicker: "BAGRAIN® - French patent",
+    kicker: "BAGRAIN® — French patent",
     titleLines: ["Keep your hands free,", "and your head dry."],
     sub: "A new solution integrated into your backpack to protect you from the rain and keep you moving, without ever slowing you down. The hood deploys in seconds, covering your head while keeping your hands free.",
     ctaPrimary: "See the bag",
@@ -559,7 +559,7 @@ const en: Dict = {
       },
       {
         title: "Keep your hands free to take calls",
-        line: "Switch off, write whilst walking, and stay dry.",
+        line: "Pick up, write while walking, and stay dry.",
       },
       {
         title: "Make the most of events and everyday life",
@@ -662,7 +662,7 @@ const en: Dict = {
     privacy: "Privacy policy",
     followTitle: "Follow",
     credits:
-      "BAGRAIN® — registered trademark · patent pending · Nantes, France · © 2026",
+      "BAGRAIN® — registered trademark · French patent · Nantes, France · © 2026",
   },
   legal: {
     backHome: "Back to the site",
@@ -671,15 +671,15 @@ const en: Dict = {
       blocks: [
         {
           h: "Publisher",
-          p: "BAGRAIN — company founded in February 2025 in Nantes, France. [Legal name, legal form, capital, registration number and registered office to be completed before going live.] Publishing director: Paul Duteil.",
+          p: "BAGRAIN — company founded in February 2025 in Nantes, France. Publishing director: Paul Duteil.",
         },
         {
           h: "Hosting",
-          p: "Site hosted by Vercel Inc., 340 S Lemon Ave #4133, Walnut, CA 91789, USA — vercel.com. [Adjust if the host changes; prefer an EU hosting region.]",
+          p: "Site hosted by Vercel Inc., 340 S Lemon Ave #4133, Walnut, CA 91789, USA — vercel.com.",
         },
         {
           h: "Intellectual property",
-          p: "BAGRAIN® is a registered trademark. The product is the subject of a filed patent application. All content on this site (texts, visuals, logo) is protected; any reproduction without permission is prohibited.",
+          p: "BAGRAIN® is a registered trademark. The product is protected by a French patent. All content on this site (texts, visuals, logo) is protected; any reproduction without permission is prohibited.",
         },
         {
           h: "Contact",

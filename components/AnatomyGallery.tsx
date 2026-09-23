@@ -73,7 +73,7 @@ const HOTSPOTS: {
     y: 10,
     zone: SAC_GAUCHE,
     fr: {
-      title: "Sangles sortie de capuche",
+      title: "Sangles de sortie de capuche",
       text: "Deux sangles pour déployer la capuche d’un seul geste.",
     },
     en: {

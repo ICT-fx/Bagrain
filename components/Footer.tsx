@@ -93,26 +93,29 @@ export default function Footer() {
           </div>
 
           <div>
-            <p className="mono-label text-mist/60">{t.footer.followTitle}</p>
-            {socials.length > 0 ? (
-              <ul className="mt-4 flex flex-col gap-2">
-                {socials.map((s) => (
-                  <li key={s.label}>
-                    <a
-                      href={s.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-[15px] text-mist/70 transition-colors hover:text-mist"
-                    >
-                      {s.label}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            ) : (
-              <p className="mt-4 text-[15px] text-mist/60">LinkedIn · Instagram</p>
+            {/* Tant qu'aucun compte n'est renseigné, la colonne ne garde que
+                le sélecteur de langue : deux noms de réseaux en gris passaient
+                pour des liens cassés. */}
+            {socials.length > 0 && (
+              <>
+                <p className="mono-label text-mist/60">{t.footer.followTitle}</p>
+                <ul className="mt-4 flex flex-col gap-2">
+                  {socials.map((s) => (
+                    <li key={s.label}>
+                      <a
+                        href={s.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-[15px] text-mist/70 transition-colors hover:text-mist"
+                      >
+                        {s.label}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </>
             )}
-            <div className="mt-6">
+            <div className={socials.length > 0 ? "mt-6" : ""}>
               <LangSwitch />
             </div>
           </div>
