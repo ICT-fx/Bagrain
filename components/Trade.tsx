@@ -116,17 +116,12 @@ export default function Trade() {
             </Reveal>
 
             <Reveal delay={280}>
-              <div className="mt-8 flex flex-wrap gap-3 sm:mt-10 sm:gap-4">
+              {/* Centré sur le tableau au-dessus, pas sur la colonne : même
+                  mesure de 440px, sinon le bouton part vers la droite. */}
+              <div className="mt-8 flex max-w-[440px] flex-wrap justify-center gap-3 sm:mt-10 sm:gap-4">
                 {!salonOver && (
                   <Button href={ev.bookingUrl} onClick={openBooking}>
                     {t.salon.meet}
-                  </Button>
-                )}
-                {/* Tant que les dates ne sont pas confirmées, pas de .ics :
-                    il enverrait un rendez-vous fictif dans l'agenda. */}
-                {ev.confirmed && (
-                  <Button href={`/api/calendar?lang=${lang}`} variant="ghost">
-                    {t.salon.addCal}
                   </Button>
                 )}
               </div>
