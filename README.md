@@ -31,8 +31,8 @@ Les deux formulaires passent par [Resend](https://resend.com) (voir
 [lib/resend.ts](lib/resend.ts)) :
 
 - **Liste de lancement** (`/api/subscribe`) : l'adresse est ajoutée aux
-  *Contacts* Resend, d'où partira l'email de lancement (*Broadcasts*). Une
-  copie de chaque inscription est envoyée à l'équipe.
+  *Contacts* Resend, d'où partira l'email de lancement (*Broadcasts*). Pas
+  de notification par email : la liste se consulte dans Resend.
 - **Contact pro** (`/api/contact`) : le message arrive par email à l'équipe ;
   « Répondre » écrit directement au visiteur.
 

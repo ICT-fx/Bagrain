@@ -1,11 +1,13 @@
 import { NextResponse } from "next/server";
-import { addContact, notifyTeam, resendConfigured } from "@/lib/resend";
+import { addContact, resendConfigured } from "@/lib/resend";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
 /**
  * Inscription à la liste de lancement : l'adresse rejoint les contacts
- * Resend (d'où partira l'email de lancement), et l'équipe reçoit une copie.
+ * Resend, d'où partira l'email de lancement. Pas de copie par email à
+ * l'équipe : la liste se consulte dans Resend, une boîte submergée ne se
+ * lit plus.
  * Sans RESEND_API_KEY (développement local), la soumission est journalisée.
  */
 export async function POST(req: Request) {
@@ -32,23 +34,6 @@ export async function POST(req: Request) {
   } catch (err) {
     console.error("[subscribe] contact failed:", err);
     return NextResponse.json({ ok: false }, { status: 502 });
-  }
-
-  // L'adresse est déjà enregistrée : la copie par email est un plus, son
-  // échec ne doit pas faire croire au visiteur que l'inscription a raté.
-  try {
-    await notifyTeam({
-      subject: `Nouvelle inscription au lancement : ${email}`,
-      text: [
-        `Email : ${email}`,
-        `Langue du site : ${lang.toUpperCase()}`,
-        `Date : ${new Date().toLocaleString("fr-FR", { timeZone: "Europe/Paris" })}`,
-        "",
-        "L'adresse a été ajoutée aux contacts Resend.",
-      ].join("\n"),
-    });
-  } catch (err) {
-    console.error("[subscribe] notify failed:", err);
   }
 
   return NextResponse.json({ ok: true });
