@@ -10,10 +10,17 @@ import Lines from "@/components/ui/Lines";
 /**
  * Les sources fournies venaient chacune d'une lumière différente (studio,
  * salon, plein soleil, intérieur de bar, duotone bleu). Elles sont recadrées
- * en 3:4 dans `public/img/team/` et rendues en noir et blanc : c'est ce qui
- * les fait tenir comme une seule série. Un visage sans photo retombe sur ses
- * initiales.
+ * en 3:4 dans `public/img/team/` et affichées en couleurs adoucies : c'est ce
+ * qui les fait tenir comme une seule série. Un visage sans photo retombe sur
+ * ses initiales.
  */
+/**
+ * Le portrait d'Olivier n'existe qu'en noir et blanc : une couleur ne se
+ * réinvente pas. Il reçoit un léger ton chaud pour ne pas trancher, gris, au
+ * milieu des cinq autres. À remplacer dès qu'une photo couleur existe.
+ */
+const TONED = new Set(["Olivier Pigasse"]);
+
 const PORTRAITS: Record<string, string> = {
   "Lola Bembekoff": "/img/team/lola-bembekoff.jpg",
   "Paul Duteil": "/img/team/paul-duteil-2.jpg",
@@ -66,7 +73,13 @@ export default function Team() {
                             alt=""
                             fill
                             sizes="(min-width: 1024px) 216px, (min-width: 640px) 30vw, 42vw"
-                            className="object-cover grayscale contrast-[1.04]"
+                            className={`object-cover contrast-[1.02] ${
+                              TONED.has(name)
+                                ? "sepia-[0.6] saturate-[1.15]"
+                                : // Couleurs baissées : six lumières
+                                  // différentes restent une seule série.
+                                  "saturate-[0.78]"
+                            }`}
                           />
                           {/* Les fonds d'origine vont du studio blanc au bar
                               sombre : ce voile les rassoit dans la nuit de la
