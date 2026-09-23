@@ -24,7 +24,7 @@ const TONED = new Set(["Olivier Pigasse"]);
 const PORTRAITS: Record<string, string> = {
   "Lola Bembekoff": "/img/team/lola-bembekoff.jpg",
   "Paul Duteil": "/img/team/paul-duteil-2.jpg",
-  "Stéphane Bembekoff": "/img/team/stephane-bembekoff-4.jpg",
+  "Stéphane Bembekoff": "/img/team/stephane-bembekoff-5.jpg",
   "Olivier Pigasse": "/img/team/olivier-pigasse-2.jpg",
   "Quentin Lebrec": "/img/team/quentin-lebrec-2.jpg",
   "Hippolyte Langlois": "/img/team/hippolyte-langlois.jpg",
