@@ -31,7 +31,7 @@ const fr = {
   hero: {
     kicker: "BAGRAIN® — brevet français",
     titleLines: ["Garde les mains libres,", "et la tête au sec."],
-    sub: "Une nouvelle solution intégrée au sac pour te protéger de la pluie et continuer tes activités, sans jamais te ralentir. La capuche se déploie en quelques secondes et couvre ta tête, sans occuper tes mains.",
+    sub: "Une nouvelle solution intégrée au sac pour te protéger de la pluie et continuer tes activités, sans jamais te ralentir. La capuche se déploie en quelques secondes et couvre ta tête tout en gardant tes mains libres.",
     ctaPrimary: "Voir le sac",
     ctaSecondary: "Nous rencontrer au salon",
     scroll: "Défiler",
@@ -61,12 +61,12 @@ const fr = {
     hint: "Continue à défiler — la capuche se déploie.",
     items: [
       {
-        title: "Attrape les tirettes",
-        body: "2 tirettes aimantées sur les bretelles du sac.",
+        title: "Tire les sangles vers le haut",
+        body: "2 sangles magnétisées sur les bretelles du sac.",
       },
       {
-        title: "Tire vers le bas",
-        body: "La capuche sort de sa poche et passe sur ta tête.",
+        title: "Déploie la capuche",
+        body: "La capuche se ferme toute seule grâce aux aimants.",
       },
       {
         title: "La capuche se ferme sur l’avant",
