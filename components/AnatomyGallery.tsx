@@ -134,7 +134,7 @@ const HOTSPOTS: {
     zone: SAC_GAUCHE,
     fr: {
       title: "Boucles métalliques de réglage rapide",
-      text: "Pour un ajustement facilité, et une tenue à toute épreuve.",
+      text: "Pour un ajustement facile et une tenue à toute épreuve.",
     },
     en: {
       title: "Quick-adjust metal buckles",
