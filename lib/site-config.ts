@@ -4,8 +4,8 @@
  * dates du salon, email de contact, réseaux sociaux, URL de production.
  */
 export const siteConfig = {
-  /** URL de production — à remplacer par le domaine définitif. */
-  url: "https://bagrain-mj39.vercel.app",
+  /** URL de production : sert aux liens absolus, au sitemap et aux partages. */
+  url: "https://bagrain.fr",
 
   /**
    * Email de contact public, affiché en pied de page (les mentions légales
