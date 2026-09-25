@@ -45,9 +45,8 @@ RESEND_API_KEY=re_…   # clé « Full access » (les contacts l'exigent)
 Sans elle (développement local), les soumissions sont seulement journalisées.
 
 Expéditeur et destinataire sont dans `mail` de [lib/site-config.ts](lib/site-config.ts).
-Sans domaine vérifié dans Resend, l'expéditeur reste `onboarding@resend.dev`
-et Resend n'écrit qu'à l'adresse du compte. Le domaine est indispensable pour
-envoyer l'email de lancement à la liste.
+`bagrain.fr` est vérifié dans Resend (région eu-west-1) : les mails partent de
+`contact@bagrain.fr`. L'expéditeur doit rester une adresse de ce domaine.
 
 ## Les visuels produit
 
