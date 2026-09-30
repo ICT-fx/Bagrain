@@ -94,70 +94,6 @@ const fr = {
       "Le sac BAGRAIN vu de face sur fond blanc, capuche repliée en arceau au-dessus du sac, logo bleu sur le tissu gris",
       "Rendu du sac vu de dos : bretelles rembourrées, mousses dorsales, passant valise et boucle de portage",
     ],
-    figureAlt:
-      "Rendu du sac BAGRAIN, de trois quarts dos et de face, avec ses points d’intérêt annotés",
-    hotspots: [
-      {
-        id: "hood-pocket",
-        name: "Poche capuche",
-        desc: "Logée en partie haute, elle range la capuche pliée — prête à sortir.",
-      },
-      {
-        id: "straps",
-        name: "Sangles d’ouverture",
-        desc: "Deux sangles pour déployer la capuche d’un seul geste.",
-      },
-      {
-        id: "cord",
-        name: "Cordon élastique",
-        desc: "Maintient la capuche pliée et guide son retour dans la poche.",
-      },
-      {
-        id: "shoulder",
-        name: "Bretelles rembourrées",
-        desc: "Confort d’épaule, même sac chargé. Poche badge et poche CB intégrées.",
-      },
-      {
-        id: "trolley",
-        name: "Passant valise",
-        desc: "Glisse le sac sur la poignée d’un trolley en déplacement.",
-      },
-      {
-        id: "foam",
-        name: "Mousses dorsales",
-        desc: "Portage stable et dos aéré sur les trajets quotidiens.",
-      },
-      {
-        id: "secret",
-        name: "Poche secrète",
-        desc: "Contre le dos, zip classique : passeport, clés, ce qui ne se prête pas.",
-      },
-      {
-        id: "bottle",
-        name: "Poches bouteille",
-        desc: "Extensibles, et parfaitement à plat quand elles ne servent pas.",
-      },
-      {
-        id: "piping",
-        name: "Liseré réfléchissant",
-        desc: "Noir le jour, lumineux la nuit, sur les arêtes du sac.",
-      },
-      {
-        id: "fabric",
-        name: "Tissu texturé",
-        desc: "Partie haute en tissu texturé, résistant à l’usage et à la pluie.",
-      },
-      {
-        id: "rfid",
-        name: "Poche à carte anti-RFID",
-        desc: "Sur la bretelle : ta carte reste illisible pour les scanners.",
-      },
-      {
-        id: "laptop",
-        name: "Compartiment 17 pouces",
-        desc: "254 × 399 mm, mousses anti-chocs : l’ordinateur voyage protégé.",
-      },
-    ],
     tableTitle: "Fiche technique",
     tableNote: ["Protection intellectuelle", "Breveté · Marque déposée ®"],
     // Deux blocs thématiques, un par colonne : SAC à gauche, CAPUCHE à droite
@@ -192,7 +128,7 @@ const fr = {
     cards: [
       {
         title: "Se sentir mieux protégé",
-        line: "La pluie commence, tu as une protection facile à ta disposition, grâce au BAGRAIN.",
+        line: "La pluie commence, tu as une protection facile à ta disposition, grâce à BAGRAIN.",
       },
       {
         title: "Photographier sans inconvénient",
@@ -454,70 +390,6 @@ const en: Dict = {
       "A man in the rain in the city, the BAGRAIN hood deployed over the head, phone and coffee in hand",
       "The BAGRAIN backpack seen from the front on a white background, hood folded in an arc above the bag, blue logo on grey fabric",
       "Render of the bag from the back: padded shoulder straps, back foam panels, suitcase strap and carry loop",
-    ],
-    figureAlt:
-      "Render of the BAGRAIN bag, three-quarter back and front views, with annotated features",
-    hotspots: [
-      {
-        id: "hood-pocket",
-        name: "Hood pocket",
-        desc: "Sits at the top of the bag and holds the folded hood — ready to go.",
-      },
-      {
-        id: "straps",
-        name: "Opening straps",
-        desc: "Two straps deploy the hood in a single motion.",
-      },
-      {
-        id: "cord",
-        name: "Elastic cord",
-        desc: "Keeps the hood folded and guides it back into its pocket.",
-      },
-      {
-        id: "shoulder",
-        name: "Padded shoulder straps",
-        desc: "Comfortable even fully loaded. Badge and card pockets built in.",
-      },
-      {
-        id: "trolley",
-        name: "Trolley sleeve",
-        desc: "Slips over a trolley handle when you travel.",
-      },
-      {
-        id: "foam",
-        name: "Back foam pads",
-        desc: "Stable carry and a ventilated back on daily commutes.",
-      },
-      {
-        id: "secret",
-        name: "Secret pocket",
-        desc: "Against your back, classic zip: passport, keys, what you won’t lend.",
-      },
-      {
-        id: "bottle",
-        name: "Bottle pockets",
-        desc: "Expandable — and perfectly flat when not in use.",
-      },
-      {
-        id: "piping",
-        name: "Reflective piping",
-        desc: "Black by day, bright at night, along the edges of the bag.",
-      },
-      {
-        id: "fabric",
-        name: "Textured fabric",
-        desc: "Textured upper section, built for wear and rain.",
-      },
-      {
-        id: "rfid",
-        name: "RFID-blocking card pocket",
-        desc: "On the strap: your card stays unreadable to scanners.",
-      },
-      {
-        id: "laptop",
-        name: "17-inch compartment",
-        desc: "254 × 399 mm with shock-absorbing foam: your laptop travels safe.",
-      },
     ],
     tableTitle: "Spec sheet",
     tableNote: ["Intellectual property", "Patented · Registered trademark ®"],
