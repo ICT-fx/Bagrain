@@ -9,10 +9,10 @@ export const siteConfig = {
 
   /**
    * Email de contact public, affiché en pied de page (les mentions légales
-   * et la politique de confidentialité y renvoient).
-   * Provisoire : passer à contact@<domaine> une fois le domaine acheté.
+   * et la politique de confidentialité y renvoient). Boîte Hostinger,
+   * redirigée vers la boîte personnelle.
    */
-  contactEmail: "l.bembekoff@gmail.com",
+  contactEmail: "contact@bagrain.fr",
 
   /**
    * Emails envoyés par le site via Resend (formulaires).
