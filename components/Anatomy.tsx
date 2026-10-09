@@ -7,8 +7,8 @@ import Reveal from "@/components/ui/Reveal";
 import Lines from "@/components/ui/Lines";
 
 /**
- * Section claire : les visuels du sac, avec leurs points interactifs, qui
- * défilent au scroll, puis la fiche technique.
+ * Section claire : les deux vues du sac, la fiche technique, puis la photo
+ * de la capuche déployée — les visuels avec leurs points interactifs.
  */
 export default function Anatomy() {
   const { t } = useLang();
@@ -34,7 +34,9 @@ export default function Anatomy() {
             </Reveal>
           </div>
 
-          <AnatomyGallery />
+          <div className="mt-8 sm:mt-10">
+            <AnatomyGallery shot="sac" />
+          </div>
 
           {/* Fiche technique */}
           <Reveal className="mt-10 sm:mt-12">
@@ -74,9 +76,13 @@ export default function Anatomy() {
               ))}
             </div>
           </Reveal>
+
+          <div className="mt-12 sm:mt-16">
+            <AnatomyGallery shot="capuche" />
+          </div>
         </div>
       </div>
-      <DomeEdge flip className="bg-ink" fill="var(--color-paper)" />
+      <DomeEdge flip fill="var(--color-paper)" />
     </section>
   );
 }

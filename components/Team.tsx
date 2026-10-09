@@ -106,10 +106,12 @@ export default function Team() {
               aria-label={t.team.partnersTitle}
             >
               <div className="marquee-track flex w-max items-center gap-10 pr-10 sm:gap-16 sm:pr-16">
-                {[0, 1].map((dup) => (
+                {/* Quatre copies : la boucle (-50 %) en recouvre deux, toujours
+                    plus larges que l'écran, même avec peu de partenaires. */}
+                {[0, 1, 2, 3].map((dup) => (
                   <div
                     key={dup}
-                    aria-hidden={dup === 1}
+                    aria-hidden={dup !== 0}
                     className="flex items-center gap-10 sm:gap-16"
                   >
                     {t.team.partners.map((p) => (
@@ -134,7 +136,7 @@ export default function Team() {
           </Reveal>
         </div>
       </div>
-      <DomeEdge flip className="bg-ink" fill="var(--color-paper)" />
+      <DomeEdge flip fill="var(--color-paper)" />
     </section>
   );
 }

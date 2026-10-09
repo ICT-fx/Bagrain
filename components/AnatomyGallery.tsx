@@ -1,16 +1,9 @@
 "use client";
 
-import {
-  useEffect,
-  useMemo,
-  useRef,
-  useState,
-  type CSSProperties,
-} from "react";
+import { useMemo, useState, type CSSProperties } from "react";
 import Image from "next/image";
 import { useLang } from "@/components/LangProvider";
 import Hotspots, { type Hotspot } from "@/components/ui/Hotspots";
-import { prefersReducedMotion } from "@/lib/animations";
 
 /**
  * Points interactifs des visuels — à ajuster ici, le rendu suit.
@@ -104,7 +97,7 @@ const HOTSPOTS: {
     zone: SAC_GAUCHE,
     fr: {
       title: "Poche à carte anti-RFID",
-      text: "Une doublure isolée des ondes : tes cartes bancaires restent à l’abri du sans-contact frauduleux.",
+      text: "Une doublure isolée des ondes : vos cartes bancaires restent à l’abri du sans-contact frauduleux.",
     },
     en: {
       title: "RFID-blocking card pocket",
@@ -206,21 +199,20 @@ const HOTSPOTS: {
 ];
 
 /**
- * Les visuels du sac, empilés : la section reste fixée le temps que le scroll
- * passe du premier au dernier. En mouvement réduit, ils se suivent
- * simplement les uns sous les autres.
+ * Les visuels du sac. Chacun s'affiche seul, à l'endroit où la page l'appelle :
+ * la fiche technique s'intercale entre les deux.
  *
  * Les sources sont des JPEG pleine définition : next/image sert un WebP
  * (qualité 90) aux navigateurs qui l'acceptent et le JPEG aux autres, avec
  * un srcset 1x/2x. Aucun filtre, flou ni mise à l'échelle n'est appliqué
- * aux images elles-mêmes — le fondu porte sur le conteneur de l'étape.
+ * aux images elles-mêmes.
  */
-const SHOTS = [
-  {
+const SHOTS = {
+  capuche: {
     id: "capuche",
     images: [{ src: "/img/anatomie-capuche.jpg", width: 1720, height: 1150, alt: 0 }],
   },
-  {
+  sac: {
     // Le dos et la face sur le même cadre : deux vues studio, côte à côte.
     id: "sac",
     // Même gabarit pour les deux vues : le sac occupe la même hauteur.
@@ -229,9 +221,9 @@ const SHOTS = [
       { src: "/img/anatomie-face-v6.jpg", width: 1033, height: 1312, alt: 1 },
     ],
   },
-] as const;
+} as const;
 
-type Shot = (typeof SHOTS)[number];
+type Shot = (typeof SHOTS)[keyof typeof SHOTS];
 
 /** Largeur d'affichage réelle : la colonne de 860 px, moins la gouttière. */
 const SIZES_SINGLE = "(min-width: 900px) 860px, calc(100vw - 48px)";
@@ -262,172 +254,53 @@ function frameOf(shot: Shot) {
   };
 }
 
-const SHOT_OF: Record<string, string> = Object.fromEntries(
-  HOTSPOTS.map((h) => [h.id, h.shot]),
-);
-
-export default function AnatomyGallery() {
+export default function AnatomyGallery({ shot: shotId }: { shot: keyof typeof SHOTS }) {
   const { t, lang } = useLang();
-  const wrapRef = useRef<HTMLDivElement>(null);
-  const slideRefs = useRef<(HTMLDivElement | null)[]>([]);
-  const [active, setActive] = useState(0);
-  const [reduced, setReduced] = useState<boolean | null>(null);
-  // Un seul point ouvert sur toute la galerie.
+  // Un seul point ouvert à la fois sur ce visuel.
   const [openId, setOpenId] = useState<string | null>(null);
 
-  const points = useMemo(() => {
-    const byShot: Record<string, Hotspot[]> = {};
-    for (const h of HOTSPOTS) {
-      (byShot[h.shot] ??= []).push({
+  const shot: Shot = SHOTS[shotId];
+  const points = useMemo<Hotspot[]>(
+    () =>
+      HOTSPOTS.filter((h) => h.shot === shotId).map((h) => ({
         id: h.id,
         x: h.x,
         y: h.y,
         zone: h.zone,
         title: h[lang].title,
         text: h[lang].text,
-      });
-    }
-    return byShot;
-  }, [lang]);
-
-  useEffect(() => {
-    setReduced(prefersReducedMotion());
-  }, []);
-
-  useEffect(() => {
-    if (reduced !== false) return;
-    const wrap = wrapRef.current;
-    if (!wrap) return;
-
-    let raf = 0;
-    let current = 0;
-    const update = () => {
-      raf = 0;
-      const rect = wrap.getBoundingClientRect();
-      const run = wrap.offsetHeight - window.innerHeight || 1;
-      const p = Math.min(1, Math.max(0, -rect.top / run));
-      // Chaque visuel occupe sa part de course ; bornée, la position
-      // garde le premier et le dernier pleins à l'entrée et à la sortie.
-      const u = Math.min(SHOTS.length - 0.5, Math.max(0.5, p * SHOTS.length));
-      slideRefs.current.forEach((el, i) => {
-        if (!el) return;
-        const d = u - (i + 0.5);
-        const o = Math.max(0, Math.min(1, 1 - Math.max(0, Math.abs(d) - 0.28) / 0.32));
-        el.style.opacity = String(o);
-        el.style.transform = `translateY(${d * -28}px)`;
-      });
-      const step = Math.min(SHOTS.length - 1, Math.floor(p * SHOTS.length));
-      if (step !== current) {
-        current = step;
-        setActive(step);
-      }
-    };
-    const onScroll = () => {
-      if (!raf) raf = requestAnimationFrame(update);
-    };
-    update();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", onScroll, { passive: true });
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", onScroll);
-      if (raf) cancelAnimationFrame(raf);
-    };
-  }, [reduced]);
-
-  // Le visuel change au scroll : une bulle restée ouverte sur l'autre se ferme.
-  useEffect(() => {
-    if (reduced !== false) return;
-    setOpenId((v) => (v && SHOT_OF[v] !== SHOTS[active].id ? null : v));
-  }, [active, reduced]);
-
-  /**
-   * Au clavier, un point du visuel masqué reçoit le focus : on fait défiler
-   * jusqu'à la position où son visuel est affiché.
-   */
-  const reveal = (i: number) => {
-    const wrap = wrapRef.current;
-    if (reduced !== false || i === active || !wrap) return;
-    const run = wrap.offsetHeight - window.innerHeight;
-    const top =
-      window.scrollY +
-      wrap.getBoundingClientRect().top +
-      run * ((i + 0.5) / SHOTS.length);
-    if (window.__lenis) window.__lenis.scrollTo(top, { immediate: true });
-    else window.scrollTo({ top, behavior: "auto" });
-  };
+      })),
+    [shotId, lang],
+  );
 
   const alts = t.anatomy.shotAlt as readonly string[];
-
-  const frame = (shot: Shot) => {
-    const pair = shot.images.length > 1;
-    const { ratio, boxes } = frameOf(shot);
-    return (
-      <div
-        /* Aucun cadre : le fond de la section est déjà clair, les visuels
-           studio posent directement dessus. */
-        className={`anatomy-frame ${pair ? "anatomy-frame--bleed" : ""}`}
-        style={{ "--ar": ratio } as CSSProperties}
-      >
-        {shot.images.map((img, j) => (
-          <div
-            key={img.src}
-            className="absolute overflow-hidden rounded-[14px]"
-            style={boxes[j]}
-          >
-            <Image
-              src={img.src}
-              alt={alts[img.alt] ?? ""}
-              fill
-              sizes={pair ? SIZES_PAIR : SIZES_SINGLE}
-              quality={90}
-              className="object-cover"
-            />
-          </div>
-        ))}
-        <Hotspots
-          points={points[shot.id] ?? []}
-          openId={openId}
-          setOpenId={setOpenId}
-        />
-      </div>
-    );
-  };
-
-  /* ——— Mouvement réduit : les visuels à la suite ——— */
-  if (reduced === true) {
-    return (
-      <div className="mt-8 grid gap-6 sm:mt-10">
-        {SHOTS.map((shot) => (
-          <div key={shot.id}>{frame(shot)}</div>
-        ))}
-      </div>
-    );
-  }
+  const pair = shot.images.length > 1;
+  const { ratio, boxes } = frameOf(shot);
 
   return (
-    <div ref={wrapRef} className="relative mt-8 h-[175vh] sm:mt-10">
-      <div className="sticky top-[calc(var(--nav-h)+16px)] flex h-[calc(100dvh-var(--nav-h)-32px)] items-center">
-        <div className="relative w-full">
-          {SHOTS.map((shot, i) => (
-            <div
-              key={shot.id}
-              ref={(el) => {
-                slideRefs.current[i] = el;
-              }}
-              /* Seul le visuel affiché reçoit le survol et les taps ; les
-                 points de l'autre restent atteignables au clavier. */
-              className={`${
-                i === 0 ? "" : "absolute inset-0 flex flex-col justify-center"
-              } ${active === i ? "" : "pointer-events-none"}`}
-              style={{ opacity: i === 0 ? 1 : 0 }}
-              onFocus={() => reveal(i)}
-            >
-              {frame(shot)}
-            </div>
-          ))}
+    <div
+      /* Aucun cadre : le fond de la section est déjà clair, les visuels
+         studio posent directement dessus. */
+      className={`anatomy-frame ${pair ? "anatomy-frame--bleed" : ""}`}
+      style={{ "--ar": ratio } as CSSProperties}
+    >
+      {shot.images.map((img, j) => (
+        <div
+          key={img.src}
+          className="absolute overflow-hidden rounded-[14px]"
+          style={boxes[j]}
+        >
+          <Image
+            src={img.src}
+            alt={alts[img.alt] ?? ""}
+            fill
+            sizes={pair ? SIZES_PAIR : SIZES_SINGLE}
+            quality={90}
+            className="object-cover"
+          />
         </div>
-      </div>
+      ))}
+      <Hotspots points={points} openId={openId} setOpenId={setOpenId} />
     </div>
   );
 }

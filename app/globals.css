@@ -487,7 +487,8 @@ body {
   }
 }
 .marquee-track {
-  animation: marquee 55s linear infinite;
+  /* 110 s pour deux séries de noms : même vitesse qu'avec une seule en 55 s. */
+  animation: marquee 110s linear infinite;
 }
 .marquee:hover .marquee-track {
   animation-play-state: paused;

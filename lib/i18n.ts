@@ -9,7 +9,7 @@ const fr = {
   meta: {
     title: "BAGRAIN® — Le sac à dos à capuche intégrée",
     description:
-      "Un sac à dos avec une capuche de pluie intégrée qui se déploie en quelques secondes. Garde les mains libres et la tête au sec. Conçu à Nantes, brevet français.",
+      "Un sac à dos avec une capuche de pluie intégrée qui se déploie en quelques secondes. Garde les mains libres et la tête au sec. Conçu à Nantes, breveté.",
   },
   a11y: {
     skip: "Aller au contenu",
@@ -29,9 +29,9 @@ const fr = {
     cta: "Être prévenu du lancement",
   },
   hero: {
-    kicker: "BAGRAIN® — brevet français",
+    kicker: "BAGRAIN® · Innovation brevetée",
     titleLines: ["Garde les mains libres,", "et la tête au sec."],
-    sub: "Une nouvelle solution intégrée au sac pour te protéger de la pluie et continuer tes activités, sans jamais te ralentir. La capuche se déploie en quelques secondes et couvre ta tête tout en gardant tes mains libres.",
+    sub: "Une nouvelle solution intégrée au sac pour vous protéger de la pluie et continuer vos activités, sans jamais vous ralentir. La capuche se déploie en quelques secondes et couvre votre tête tout en gardant vos mains libres.",
     ctaPrimary: "Voir le sac",
     ctaSecondary: "Nous rencontrer au salon",
     scroll: "Défiler",
@@ -41,7 +41,7 @@ const fr = {
   problem: {
     kicker: "Le problème",
     title: "La pluie nous ralentit.",
-    body: "Un parapluie occupe une main, se retourne au vent, dégouline dans le métro et s’oublie sur une table. Une capuche de manteau ne tient pas et ne protège pas le sac. Le sac à dos est déjà sur tes épaules.",
+    body: "Un parapluie occupe une main, se retourne au vent, dégouline dans le métro et s’oublie sur une table. Une capuche de manteau ne tient pas et ne protège pas le sac. Le sac à dos est déjà sur vos épaules.",
     film: {
       alt: "Séquence en boucle du sac BAGRAIN : gros plans sur les bretelles et le tissu, un passant sous la pluie dans une rue de nuit, puis la capuche qui se déploie hors du sac.",
       pause: "Mettre l’animation en pause",
@@ -50,7 +50,7 @@ const fr = {
   },
   intro: {
     kicker: "Le sac",
-    title: "La solution est déjà sur ton dos.",
+    title: "La solution est déjà sur votre dos.",
     wornAlt:
       "Une femme vue de dos sur une passerelle mouillée en ville, le sac BAGRAIN sur les épaules, logo bleu bien visible et capuche repliée",
     body: "BAGRAIN est un sac à dos urbain & outdoor doté d’une capuche. Rangée dans un compartiment adapté en haut du sac, elle se déploie par un tirage de sangles et d’attaches aimantées. Elle protège la tête en laissant les mains libres.",
@@ -58,19 +58,19 @@ const fr = {
   steps: {
     kicker: "Comment ça marche",
     title: "3 étapes pour être au sec",
-    hint: "Continue à défiler — la capuche se déploie.",
+    hint: "Continuez à défiler — la capuche se déploie.",
     items: [
       {
-        title: "Tire les sangles vers le haut",
+        title: "Tirer les sangles vers le haut",
         body: "2 sangles magnétisées sur les bretelles du sac.",
       },
       {
-        title: "Déploie la capuche",
-        body: "La capuche vient se déposer au-dessus de ta tête pour te protéger.",
+        title: "Déployer la capuche",
+        body: "La capuche vient se déposer au-dessus de votre tête pour vous protéger.",
       },
       {
         title: "La capuche se ferme sur l’avant",
-        body: "Les aimants se rejoignent et ferment la capuche sur l’avant. Tu es couvert.",
+        body: "Les aimants se rejoignent et ferment la capuche sur l’avant. Vous êtes couvert.",
       },
     ],
     counters: [
@@ -88,7 +88,7 @@ const fr = {
     kicker: "Anatomie",
     title: "Le souci du détail",
     intro:
-      "Développé avec le bureau d’études OCCO et L’École de Design Nantes Atlantique.\nClique pour explorer.",
+      "Cliquez pour explorer.",
     shotAlt: [
       "Un homme sous la pluie en ville, la capuche BAGRAIN déployée sur la tête, téléphone et café en main",
       "Le sac BAGRAIN vu de face sur fond blanc, capuche repliée en arceau au-dessus du sac, logo bleu sur le tissu gris",
@@ -128,7 +128,7 @@ const fr = {
     cards: [
       {
         title: "Se sentir mieux protégé",
-        line: "La pluie commence, tu as une protection facile à ta disposition, grâce à BAGRAIN.",
+        line: "La pluie commence, vous avez une protection facile à votre disposition, grâce à BAGRAIN.",
       },
       {
         title: "Photographier sans inconvénient",
@@ -148,30 +148,29 @@ const fr = {
     kicker: "L’équipe",
     title: "Que des passionnés !",
     members: [
+      { name: "Paul Duteil", role: "CEO & Management", city: "Vienne, Autriche" },
       { name: "Lola Bembekoff", role: "Project Manager", city: "Annecy, France" },
-      {
-        name: "Stéphane Bembekoff",
-        role: "Sourcing & Production",
-        city: "Hong Kong",
-      },
       {
         name: "Olivier Pigasse",
         role: "Design & Développement Produit",
         city: "Nantes, France",
       },
       {
+        name: "Stéphane Bembekoff",
+        role: "Sourcing & Production",
+        city: "Hong Kong",
+      },
+      {
         name: "Quentin Lebrec",
         role: "Ventes & Développement Commercial",
         city: "Lausanne, Suisse",
       },
-      { name: "Paul Duteil", role: "CEO & Management", city: "Vienne, Autriche" },
       { name: "Hippolyte Langlois", role: "Project Contributor", city: "Angers, France" },
     ],
     partnersTitle: "Ils développent le produit avec nous",
     partners: [
       { name: "MEPCO — Incubation & business support", note: "Benoît Duteil, dirigeant" },
       { name: "OCCO Bureau d’études", note: "" },
-      { name: "L’École de Design Nantes Atlantique", note: "" },
       { name: "SPK Group", note: "" },
       { name: "RVDB Intellectual Property", note: "" },
       { name: "Bpifrance", note: "" },
@@ -180,7 +179,7 @@ const fr = {
   salon: {
     kicker: "Salon",
     title: "RDV à ISPO",
-    body: "Un prototype s’essaie mieux qu’il ne se raconte.\nPasse sur le stand : déploie la capuche toi-même, pose-nous tes questions !",
+    body: "Un prototype s’essaie mieux qu’il ne se raconte.\nPassez sur le stand : déployez la capuche vous-même, posez-nous vos questions !",
     eventName: "Nom du salon",
     dates: "Dates",
     place: "Lieu",
@@ -198,37 +197,37 @@ const fr = {
     title: "Lancement en approche",
     newsletter: {
       title: "Liste de lancement",
-      body: "Une adresse email, et tu sauras avant tout le monde quand BAGRAIN sera disponible.",
-      emailLabel: "Ton adresse email",
+      body: "Une adresse email, et vous saurez avant tout le monde quand BAGRAIN sera disponible.",
+      emailLabel: "Votre adresse email",
       emailPlaceholder: "prenom@exemple.fr",
       consent:
         "J’accepte que BAGRAIN utilise mon adresse pour m’informer du lancement. Désinscription en un clic, jamais de revente.",
       submit: "Me prévenir",
       sending: "Envoi en cours…",
-      success: "C’est noté. Tu seras parmi les premiers prévenus.",
-      errorInvalid: "Adresse email invalide — vérifie le format.",
-      errorConsent: "Coche la case de consentement pour continuer.",
-      errorServer: "L’envoi a échoué. Réessaie dans un instant.",
+      success: "C’est noté. Vous serez parmi les premiers prévenus.",
+      errorInvalid: "Adresse email invalide — vérifiez le format.",
+      errorConsent: "Cochez la case de consentement pour continuer.",
+      errorServer: "L’envoi a échoué. Réessayez dans un instant.",
     },
     pro: {
       title: "Distributeurs, revendeurs, presse",
-      body: "Tu veux distribuer BAGRAIN, l’essayer, en parler ? Écris-nous, on répond vite.",
+      body: "Vous souhaitez distribuer BAGRAIN, l’essayer ou en parler ? Écrivez-nous, on répond vite.",
       name: "Nom",
-      namePlaceholder: "Ton nom",
+      namePlaceholder: "Votre nom",
       email: "Email",
-      emailPlaceholder: "toi@societe.com",
+      emailPlaceholder: "vous@societe.com",
       company: "Société",
       companyPlaceholder: "Nom de la société",
       country: "Pays",
       countryPlaceholder: "France",
       message: "Message",
-      messagePlaceholder: "Ta demande en quelques lignes…",
+      messagePlaceholder: "Votre demande en quelques lignes…",
       submit: "Envoyer",
       sending: "Envoi en cours…",
-      success: "Message reçu. On revient vers toi rapidement.",
-      errorRequired: "Nom, email et message sont nécessaires pour te répondre.",
-      errorInvalid: "Adresse email invalide — vérifie le format.",
-      errorServer: "L’envoi a échoué. Réessaie dans un instant.",
+      success: "Message reçu. On revient vers vous rapidement.",
+      errorRequired: "Nom, email et message sont nécessaires pour vous répondre.",
+      errorInvalid: "Adresse email invalide — vérifiez le format.",
+      errorServer: "L’envoi a échoué. Réessayez dans un instant.",
     },
   },
   footer: {
@@ -239,7 +238,7 @@ const fr = {
     privacy: "Politique de confidentialité",
     followTitle: "Suivre",
     credits:
-      "BAGRAIN® — marque déposée · brevet français · Nantes, France · © 2026",
+      "BAGRAIN® — marque déposée · innovation brevetée · Conçu à Nantes · © 2026",
   },
   legal: {
     backHome: "Retour au site",
@@ -256,7 +255,7 @@ const fr = {
         },
         {
           h: "Propriété intellectuelle",
-          p: "BAGRAIN® est une marque déposée. Le produit est protégé par un brevet français. L’ensemble des contenus de ce site (textes, visuels, logo) est protégé ; toute reproduction sans autorisation est interdite.",
+          p: "BAGRAIN® est une marque déposée. Le produit est breveté. L’ensemble des contenus de ce site (textes, visuels, logo) est protégé ; toute reproduction sans autorisation est interdite.",
         },
         {
           h: "Contact",
@@ -306,7 +305,7 @@ const en: Dict = {
   meta: {
     title: "BAGRAIN® — The backpack with a built-in hood",
     description:
-      "A backpack with a built-in rain hood that deploys in seconds. Keep your hands free and your head dry. Designed in Nantes, French patent granted.",
+      "A backpack with a built-in rain hood that deploys in seconds. Keep your hands free and your head dry. Designed in Nantes, patented.",
   },
   a11y: {
     skip: "Skip to content",
@@ -326,7 +325,7 @@ const en: Dict = {
     cta: "Get launch updates",
   },
   hero: {
-    kicker: "BAGRAIN® — French patent",
+    kicker: "BAGRAIN® · Patented innovation",
     titleLines: ["Keep your hands free,", "and your head dry."],
     sub: "A new solution integrated into your backpack to protect you from the rain and keep you moving, without ever slowing you down. The hood deploys in seconds, covering your head while keeping your hands free.",
     ctaPrimary: "See the bag",
@@ -385,7 +384,7 @@ const en: Dict = {
     kicker: "Anatomy",
     title: "Attention to detail",
     intro:
-      "Developed with OCCO design office and L’École de Design Nantes Atlantique.\nClick to explore.",
+      "Click to explore.",
     shotAlt: [
       "A man in the rain in the city, the BAGRAIN hood deployed over the head, phone and coffee in hand",
       "The BAGRAIN backpack seen from the front on a white background, hood folded in an arc above the bag, blue logo on grey fabric",
@@ -443,30 +442,29 @@ const en: Dict = {
     kicker: "The team",
     title: "Nothing but enthusiasts!",
     members: [
+      { name: "Paul Duteil", role: "CEO & Management", city: "Vienna, Austria" },
       { name: "Lola Bembekoff", role: "Project Manager", city: "Annecy, France" },
-      {
-        name: "Stéphane Bembekoff",
-        role: "Sourcing & Production",
-        city: "Hong Kong",
-      },
       {
         name: "Olivier Pigasse",
         role: "Product Design & Development",
         city: "Nantes, France",
       },
       {
+        name: "Stéphane Bembekoff",
+        role: "Sourcing & Production",
+        city: "Hong Kong",
+      },
+      {
         name: "Quentin Lebrec",
         role: "Sales & Business Development",
         city: "Lausanne, Switzerland",
       },
-      { name: "Paul Duteil", role: "CEO & Management", city: "Vienna, Austria" },
       { name: "Hippolyte Langlois", role: "Project Contributor", city: "Angers, France" },
     ],
     partnersTitle: "They are developing the product with us",
     partners: [
       { name: "MEPCO — Incubation & business support", note: "Benoît Duteil, director" },
       { name: "OCCO Bureau d’études", note: "" },
-      { name: "L’École de Design Nantes Atlantique", note: "" },
       { name: "SPK Group", note: "" },
       { name: "RVDB Intellectual Property", note: "" },
       { name: "Bpifrance", note: "" },
@@ -534,7 +532,7 @@ const en: Dict = {
     privacy: "Privacy policy",
     followTitle: "Follow",
     credits:
-      "BAGRAIN® — registered trademark · French patent · Nantes, France · © 2026",
+      "BAGRAIN® — registered trademark · patented innovation · Designed in Nantes · © 2026",
   },
   legal: {
     backHome: "Back to the site",
@@ -551,7 +549,7 @@ const en: Dict = {
         },
         {
           h: "Intellectual property",
-          p: "BAGRAIN® is a registered trademark. The product is protected by a French patent. All content on this site (texts, visuals, logo) is protected; any reproduction without permission is prohibited.",
+          p: "BAGRAIN® is a registered trademark. The product is patented. All content on this site (texts, visuals, logo) is protected; any reproduction without permission is prohibited.",
         },
         {
           h: "Contact",

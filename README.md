@@ -175,7 +175,7 @@ ajoutait des bandes visibles sur les grands aplats sombres de la coque.
   capte des emails pour le lancement 2026.
 - Aucune donnée financière (levées, CA, prévisionnel) ni chiffre de marché.
 - Partenaires financiers et conseils exclus de la vitrine ; seuls OCCO,
-  L'École de Design Nantes Atlantique, SPK Group et RVDB apparaissent.
+  SPK Group et RVDB apparaissent.
 - « **Brevet déposé** / patent pending », jamais « breveté ».
 - « **Aucun produit comparable identifié à ce jour** », jamais « aucun
   concurrent » en absolu.
