@@ -92,7 +92,7 @@ const fr = {
     shotAlt: [
       "Un homme sous la pluie en ville, la capuche BAGRAIN déployée sur la tête, téléphone et café en main",
       "Le sac BAGRAIN vu de face sur fond blanc, capuche repliée en arceau au-dessus du sac, logo bleu sur le tissu gris",
-      "Rendu du sac vu de dos : bretelles rembourrées, mousses dorsales, passant valise et boucle de portage",
+      "Le sac BAGRAIN vu de dos sur fond blanc : bretelles grises, dos en mousse aérée, sangles de capuche et boucles métalliques",
     ],
     tableTitle: "Fiche technique",
     tableNote: ["Protection intellectuelle", "Breveté · Marque déposée ®"],
@@ -388,7 +388,7 @@ const en: Dict = {
     shotAlt: [
       "A man in the rain in the city, the BAGRAIN hood deployed over the head, phone and coffee in hand",
       "The BAGRAIN backpack seen from the front on a white background, hood folded in an arc above the bag, blue logo on grey fabric",
-      "Render of the bag from the back: padded shoulder straps, back foam panels, suitcase strap and carry loop",
+      "The BAGRAIN backpack seen from the back on a white background: grey shoulder straps, breathable foam back panel, hood straps and metal buckles",
     ],
     tableTitle: "Spec sheet",
     tableNote: ["Intellectual property", "Patented · Registered trademark ®"],

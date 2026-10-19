@@ -62,8 +62,8 @@ const HOTSPOTS: {
   {
     shot: "sac",
     id: "sangles-capuche", // 3
-    x: 20,
-    y: 10,
+    x: 17.5,
+    y: 22.7,
     zone: SAC_GAUCHE,
     fr: {
       title: "Sangles de sortie de capuche",
@@ -77,8 +77,8 @@ const HOTSPOTS: {
   {
     shot: "sac",
     id: "aimants-sangles", // 4
-    x: 19,
-    y: 21,
+    x: 33.7,
+    y: 40.4, // sur l’aimant de la bretelle droite
     zone: SAC_GAUCHE,
     fr: {
       title: "Aimants de fixation des sangles",
@@ -92,8 +92,8 @@ const HOTSPOTS: {
   {
     shot: "sac",
     id: "poche-rfid", // 5
-    x: 16,
-    y: 35,
+    x: 19.3,
+    y: 49.7, // sur le zip de la poche de bretelle
     zone: SAC_GAUCHE,
     fr: {
       title: "Poche à carte anti-RFID",
@@ -107,8 +107,8 @@ const HOTSPOTS: {
   {
     shot: "sac",
     id: "dos-aere", // 6
-    x: 23,
-    y: 45,
+    x: 24.8,
+    y: 71.4,
     zone: SAC_GAUCHE,
     fr: {
       title: "Dos technique aéré",
@@ -122,8 +122,8 @@ const HOTSPOTS: {
   {
     shot: "sac",
     id: "boucles-reglage", // 7
-    x: 19,
-    y: 77,
+    x: 6.1,
+    y: 87.5,
     zone: SAC_GAUCHE,
     fr: {
       title: "Boucles métalliques de réglage rapide",
@@ -217,7 +217,7 @@ const SHOTS = {
     id: "sac",
     // Même gabarit pour les deux vues : le sac occupe la même hauteur.
     images: [
-      { src: "/img/anatomie-dos-v10.jpg", width: 1104, height: 1489, alt: 2 },
+      { src: "/img/anatomie-dos-v12.jpg", width: 913, height: 1232, alt: 2 },
       { src: "/img/anatomie-face-v6.jpg", width: 1033, height: 1312, alt: 1 },
     ],
   },
