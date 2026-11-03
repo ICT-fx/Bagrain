@@ -101,6 +101,9 @@ const fr = {
       {
         title: "Sac",
         rows: [
+          ["Dimensions", "Largeur 30 cm\nHauteur 45 cm\nProfondeur 17 cm"],
+          ["Volume", "25 litres"],
+          ["Poids", "1 kg"],
           ["Poche ordinateur", "Compatible 17 pouces, fond anti-chocs"],
           ["Poche principale", "Zip étanche"],
           ["Poche frontale", "Zip étanche dissimulé"],
@@ -394,6 +397,9 @@ const en: Dict = {
       {
         title: "Bag",
         rows: [
+          ["Dimensions", "Width 30 cm\nHeight 45 cm\nDepth 17 cm"],
+          ["Volume", "25 litres"],
+          ["Weight", "1 kg"],
           ["Laptop pocket", "Fits 17-inch laptops, shock-absorbing base"],
           ["Main pocket", "Waterproof zip"],
           ["Front pocket", "Concealed waterproof zip"],
