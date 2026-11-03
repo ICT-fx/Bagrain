@@ -78,11 +78,11 @@ const fr = {
       { value: 3, prefix: "", suffix: "", label: "paires d’aimants" },
       { value: 3, prefix: "", suffix: " secondes", label: "pour se couvrir" },
     ],
-    stageAlt: [
-      "Étape 1 : la main passe par-dessus l’épaule et tire les sangles vers le haut, capuche encore rangée",
-      "Étape 2 : la capuche sort du sac et se dépose au-dessus de la tête, les aimants se libèrent",
-      "Étape 3 : la main réunit les aimants sous le menton, la capuche est fermée sur l’avant",
-    ],
+    film: {
+      alt: "Vidéo en boucle du sac BAGRAIN : le sac tourne sur lui-même capuche déployée, puis une femme sous la pluie en ville tire les sangles, déploie la capuche au-dessus de sa tête et la ferme sur l’avant.",
+      pause: "Mettre la vidéo en pause",
+      play: "Lire la vidéo",
+    },
   },
   anatomy: {
     kicker: "Anatomie",
@@ -374,11 +374,11 @@ const en: Dict = {
       { value: 3, prefix: "", suffix: "", label: "pairs of magnets" },
       { value: 3, prefix: "", suffix: " seconds", label: "to get covered" },
     ],
-    stageAlt: [
-      "Step 1: the hand reaches over the shoulder and pulls the straps up, hood still stowed",
-      "Step 2: the hood comes out of the bag and settles over the head, the magnets are released",
-      "Step 3: the hand brings the magnets together under the chin, hood closed at the front",
-    ],
+    film: {
+      alt: "Looping video of the BAGRAIN backpack: the bag turns with its hood deployed, then a woman in the city rain pulls the straps, brings the hood over her head and closes it at the front.",
+      pause: "Pause the video",
+      play: "Play the video",
+    },
   },
   anatomy: {
     kicker: "Anatomy",

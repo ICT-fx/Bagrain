@@ -4,25 +4,30 @@ import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useLang } from "@/components/LangProvider";
-import BagFigure, { type Stage } from "@/components/svg/BagFigure";
-import RainLayer from "@/components/svg/RainLayer";
 import Counter from "@/components/ui/Counter";
+import LoopFilm from "@/components/ui/LoopFilm";
 import Reveal from "@/components/ui/Reveal";
 import { prefersReducedMotion } from "@/lib/animations";
 
 /**
- * Le morceau de bravoure : section sticky sur 400vh.
- * Le scroll pilote le déploiement de la capuche (crossfade entre 4 rendus,
- * remplaçables par une séquence d'images — voir README) et l'activation
- * des 4 étapes. En mouvement réduit : liste verticale classique.
+ * Le morceau de bravoure : section sticky.
+ * À droite, le film du sac tourne en boucle ; à gauche, le scroll allume
+ * les 3 étapes l'une après l'autre. En mouvement réduit : liste verticale
+ * classique, film à l'arrêt sur sa première image.
  */
-/** Une étape = un rendu : ce que dit le texte, le dessin le montre. */
 const STEP_COUNT = 3;
+
+/** Film vertical 720×1280, 30 s, sans piste audio, encodé à 1,2 Mb/s. */
+const FILM = {
+  src: "/video/capuche-deploiement.mp4",
+  poster: "/img/capuche-deploiement-poster.webp",
+  width: 720,
+  height: 1280,
+};
 
 export default function HoodSequence() {
   const { t } = useLang();
   const wrapRef = useRef<HTMLDivElement>(null);
-  const stageRefs = useRef<(HTMLDivElement | null)[]>([]);
   const barRef = useRef<HTMLDivElement>(null);
   const fillRef = useRef<HTMLDivElement>(null);
   const [activeStep, setActiveStep] = useState(0);
@@ -53,16 +58,6 @@ export default function HoodSequence() {
         if (fillRef.current) {
           fillRef.current.style.transform = `scaleX(${p})`;
         }
-        // Chaque rendu occupe son tiers de course ; bornée, la position garde
-        // le premier et le dernier rendu pleins à l'entrée comme à la sortie.
-        const u = Math.min(STEP_COUNT - 0.5, Math.max(0.5, p * STEP_COUNT));
-        // Crossfade : chaque rendu est plein au centre de sa fenêtre.
-        stageRefs.current.forEach((el, i) => {
-          if (!el) return;
-          const d = Math.abs(u - (i + 0.5));
-          const o = Math.max(0, Math.min(1, 1 - Math.max(0, d - 0.32) / 0.36));
-          el.style.opacity = String(o);
-        });
         const step = Math.min(STEP_COUNT - 1, Math.floor(p * STEP_COUNT));
         if (step !== current) {
           current = step;
@@ -75,7 +70,7 @@ export default function HoodSequence() {
 
   const steps = t.steps.items;
 
-  /* ——— Repli mouvement réduit : liste verticale, visuels empilés ——— */
+  /* ——— Repli mouvement réduit : liste verticale, film à côté ——— */
   if (reduced === true) {
     return (
       <section id="solution" className="section-pad bg-ink">
@@ -84,27 +79,20 @@ export default function HoodSequence() {
           <h2 className="display-l mt-6 max-w-[20ch] text-mist">
             {t.steps.title}
           </h2>
-          <ol className="mt-8 grid gap-8 sm:mt-12 sm:gap-12">
-            {steps.map((step, i) => (
-              <li
-                key={i}
-                className="grid items-center gap-6 md:grid-cols-[1fr_320px] md:gap-8"
-              >
-                <div>
+          <div className="mt-8 grid items-center gap-10 sm:mt-12 md:grid-cols-[1fr_320px] md:gap-12">
+            <ol className="grid gap-8 sm:gap-12">
+              {steps.map((step, i) => (
+                <li key={i}>
                   <p className="mono-label text-bagrain">
                     {String(i + 1).padStart(2, "0")}
                   </p>
                   <h3 className="heading-3 mt-3 text-mist">{step.title}</h3>
                   <p className="mt-3 max-w-[46ch] text-mist/70">{step.body}</p>
-                </div>
-                <BagFigure
-                  stage={(i + 1) as Stage}
-                  label={t.steps.stageAlt[i]}
-                  className="mx-auto h-auto w-full max-w-[210px] sm:max-w-[280px]"
-                />
-              </li>
-            ))}
-          </ol>
+                </li>
+              ))}
+            </ol>
+            <HoodFilm className="mx-auto aspect-[9/16] w-full max-w-[280px] md:max-w-none" />
+          </div>
           <CountersRow />
         </div>
       </section>
@@ -208,29 +196,12 @@ export default function HoodSequence() {
               </p>
             </div>
 
-            {/* Visuel scrubbé */}
+            {/* Film vertical : sa hauteur suit l'écran, la largeur découle
+                du format 9:16. */}
             <div className="relative order-1 min-h-0 flex-1 lg:order-2 lg:h-[78vh] lg:flex-none">
-              {/* Pluie commune aux 3 rendus, derrière la silhouette : elle ne
-                  s'interrompt pas pendant les fondus. */}
-              <div className="absolute inset-0 flex items-center justify-center">
-                <RainLayer className="h-full max-h-[74vh] w-auto max-w-full" />
+              <div className="absolute inset-0 flex items-center justify-center pb-4 lg:pb-0">
+                <HoodFilm className="aspect-[9/16] h-full max-h-[74vh] max-w-full" />
               </div>
-              {([1, 2, 3] as const).map((stage, i) => (
-                <div
-                  key={stage}
-                  ref={(el) => {
-                    stageRefs.current[i] = el;
-                  }}
-                  className="absolute inset-0 flex items-center justify-center"
-                  style={{ opacity: i === 0 ? 1 : 0 }}
-                >
-                  <BagFigure
-                    stage={stage}
-                    label={t.steps.stageAlt[i]}
-                    className="h-full max-h-[74vh] w-auto max-w-full"
-                  />
-                </div>
-              ))}
             </div>
           </div>
         </div>
@@ -239,6 +210,19 @@ export default function HoodSequence() {
         <CountersRow />
       </div>
     </section>
+  );
+}
+
+function HoodFilm({ className }: { className: string }) {
+  const { t } = useLang();
+  return (
+    <LoopFilm
+      {...FILM}
+      alt={t.steps.film.alt}
+      playLabel={t.steps.film.play}
+      pauseLabel={t.steps.film.pause}
+      className={className}
+    />
   );
 }
 
