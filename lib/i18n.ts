@@ -58,7 +58,6 @@ const fr = {
   steps: {
     kicker: "Comment ça marche",
     title: "3 étapes pour être au sec",
-    hint: "Continuez à défiler — la capuche se déploie.",
     items: [
       {
         title: "Tirer les sangles vers le haut",
@@ -354,7 +353,6 @@ const en: Dict = {
   steps: {
     kicker: "How it works",
     title: "3 steps to stay dry",
-    hint: "Keep scrolling — the hood deploys.",
     items: [
       {
         title: "Pull the straps up",

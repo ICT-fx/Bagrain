@@ -191,9 +191,6 @@ export default function HoodSequence() {
                   );
                 })}
               </ol>
-              <p className="mono-label mt-4 text-bagrain lg:mt-8">
-                {t.steps.hint}
-              </p>
             </div>
 
             {/* Film vertical : sa hauteur suit l'écran, la largeur découle
