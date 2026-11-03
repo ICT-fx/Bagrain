@@ -398,7 +398,7 @@ const en: Dict = {
         title: "Bag",
         rows: [
           ["Dimensions", "Width 30 cm\nHeight 45 cm\nDepth 17 cm"],
-          ["Volume", "25 litres"],
+          ["Volume", "25 liters"],
           ["Weight", "1 kg"],
           ["Laptop pocket", "Fits 17-inch laptops, shock-absorbing base"],
           ["Main pocket", "Waterproof zip"],
